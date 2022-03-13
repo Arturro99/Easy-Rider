@@ -50,10 +50,16 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>110</y>
-      <width>631</width>
-      <height>16</height>
+      <y>90</y>
+      <width>641</width>
+      <height>20</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -63,10 +69,13 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>70</y>
-      <width>631</width>
-      <height>16</height>
+      <y>50</y>
+      <width>641</width>
+      <height>20</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -76,10 +85,13 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>280</y>
-      <width>631</width>
-      <height>16</height>
+      <y>270</y>
+      <width>641</width>
+      <height>20</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -88,11 +100,14 @@
    <widget class="Line" name="road3hor">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>330</y>
-      <width>631</width>
-      <height>16</height>
+      <x>-20</x>
+      <y>310</y>
+      <width>661</width>
+      <height>20</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -102,10 +117,13 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>510</y>
+      <y>500</y>
       <width>631</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -115,10 +133,13 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>470</y>
+      <y>460</y>
       <width>631</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -128,17 +149,403 @@
     <property name="geometry">
      <rect>
       <x>670</x>
+      <y>130</y>
+      <width>20</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road7hor">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>270</y>
+      <width>571</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road8hor">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>310</y>
+      <width>571</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road9hor">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>480</y>
+      <width>571</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road10hor">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>760</y>
+      <width>571</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road14hor">
+    <property name="geometry">
+     <rect>
+      <x>1390</x>
+      <y>680</y>
+      <width>191</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road13hor">
+    <property name="geometry">
+     <rect>
+      <x>1390</x>
+      <y>640</y>
+      <width>191</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road11hor">
+    <property name="geometry">
+     <rect>
+      <x>1390</x>
+      <y>270</y>
+      <width>191</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road12hor">
+    <property name="geometry">
+     <rect>
+      <x>1390</x>
+      <y>310</y>
+      <width>191</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road6hor">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>70</y>
+      <width>251</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road6ver">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
       <y>140</y>
       <width>20</width>
       <height>131</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road5ver">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>830</y>
+      <width>20</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road2ver">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>360</y>
+      <width>20</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road1ver">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>360</y>
+      <width>20</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road4ver">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>540</y>
+      <width>20</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road3ver">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>540</y>
+      <width>20</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road12ver">
+    <property name="geometry">
+     <rect>
+      <x>1360</x>
+      <y>720</y>
+      <width>20</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road11ver">
+    <property name="geometry">
+     <rect>
+      <x>1310</x>
+      <y>540</y>
+      <width>20</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road13ver">
+    <property name="geometry">
+     <rect>
+      <x>1310</x>
+      <y>830</y>
+      <width>20</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road15ver">
+    <property name="geometry">
+     <rect>
+      <x>1630</x>
+      <y>360</y>
+      <width>20</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road14ver">
+    <property name="geometry">
+     <rect>
+      <x>1590</x>
+      <y>360</y>
+      <width>20</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road10ver">
+    <property name="geometry">
+     <rect>
+      <x>1360</x>
+      <y>350</y>
+      <width>20</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road9ver">
+    <property name="geometry">
+     <rect>
+      <x>1310</x>
+      <y>350</y>
+      <width>20</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road8ver">
+    <property name="geometry">
+     <rect>
+      <x>1360</x>
+      <y>0</y>
+      <width>20</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road7ver">
+    <property name="geometry">
+     <rect>
+      <x>1310</x>
+      <y>0</y>
+      <width>20</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
    <zorder>map</zorder>
-   <zorder>horizontalSlider</zorder>
    <zorder>horizontalSlider</zorder>
    <zorder>road1hor</zorder>
    <zorder>road0hor</zorder>
@@ -147,6 +554,30 @@
    <zorder>road5hor</zorder>
    <zorder>road4hor</zorder>
    <zorder>road0ver</zorder>
+   <zorder>road7hor</zorder>
+   <zorder>road8hor</zorder>
+   <zorder>road9hor</zorder>
+   <zorder>road10hor</zorder>
+   <zorder>road14hor</zorder>
+   <zorder>road13hor</zorder>
+   <zorder>road11hor</zorder>
+   <zorder>road12hor</zorder>
+   <zorder>road6hor</zorder>
+   <zorder>road6ver</zorder>
+   <zorder>road5ver</zorder>
+   <zorder>road2ver</zorder>
+   <zorder>road1ver</zorder>
+   <zorder>road4ver</zorder>
+   <zorder>road3ver</zorder>
+   <zorder>road12ver</zorder>
+   <zorder>road11ver</zorder>
+   <zorder>road13ver</zorder>
+   <zorder>road15ver</zorder>
+   <zorder>road14ver</zorder>
+   <zorder>road10ver</zorder>
+   <zorder>road9ver</zorder>
+   <zorder>road8ver</zorder>
+   <zorder>road7ver</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">

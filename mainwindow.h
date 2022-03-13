@@ -19,11 +19,18 @@ public:
     ~MainWindow();
 
     void paintEvent(QPaintEvent *event);
+    void paintCars(QPaintEvent *event);
+    void loadVehicles();
+
+    QPixmap *getPixmap() const;
+    void setPixmap(QPixmap *newPixmap);
+
 private:
     Ui::MainWindow *ui;
     Traffic traffic;
     Road *horizontalRoads;
     Road *verticalRoads;
+    QPixmap *pixmap;
     void assignStreets();
 //    void resizeEvent(QResizeEvent *evt); // declare The members
 
