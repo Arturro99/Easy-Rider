@@ -8,7 +8,10 @@
 class Bicycle : Vehicle
 {
 public:
-    Bicycle();
+    explicit Bicycle(Direction initialDirection);
+    virtual void drive(Direction direction) {
+
+    }
 };
 
 #endif // BICYCLE_H

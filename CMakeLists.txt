@@ -25,6 +25,9 @@ set(PROJECT_SOURCES
         car.h car.cpp
         truck.h truck.cpp
         bicycle.h bicycle.cpp
+        trafficrules.h trafficrules.cpp
+        trafficlight.h trafficlight.cpp
+        sign.h sign.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

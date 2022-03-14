@@ -3,8 +3,11 @@
 
 #include "traffic.h"
 #include "road.h"
+#include "trafficrules.h"
 
 #include <QMainWindow>
+#include <QSharedPointer>
+#include <QVector>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,17 +25,25 @@ public:
     void paintCars(QPaintEvent *event);
     void loadVehicles();
 
-    QPixmap *getPixmap() const;
-    void setPixmap(QPixmap *newPixmap);
+    QPixmap *getBackground() const;
+    void setBackground(QPixmap *newPixmap);
+
+    void rotateVehicle(Direction direction, VehiclePointer vehicle);
+
 
 private:
     Ui::MainWindow *ui;
     Traffic traffic;
-    Road *horizontalRoads;
-    Road *verticalRoads;
-    QPixmap *pixmap;
+    TrafficRules trafficRules;
+    QVector<RoadPointer> horizontalRoads;
+    QVector<RoadPointer> verticalRoads;
+    QSharedPointer<QPixmap> background;
+    uchar* data;
+    void delay();
     void assignStreets();
 //    void resizeEvent(QResizeEvent *evt); // declare The members
+
+    VehiclePointer car;
 
 signals:
 

@@ -24,3 +24,9 @@ Road::Road()
 {
 
 }
+
+Road::Road(int *startCoordinates, int *endCoordinates)
+{
+    this->startCoordinates = startCoordinates;
+    this->endCoordinates = endCoordinates;
+}

@@ -1,6 +1,6 @@
 #include "bicycle.h"
 
-Bicycle::Bicycle()
+Bicycle::Bicycle(Direction x) : Vehicle(x)
 {
 
 }

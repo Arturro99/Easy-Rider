@@ -8,7 +8,10 @@
 class Truck : Vehicle
 {
 public:
-    Truck();
+    explicit Truck(Direction initialDirection);
+    virtual void drive(Direction direction) {
+
+    }
 };
 
 #endif // TRUCK_H

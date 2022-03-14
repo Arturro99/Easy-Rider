@@ -1,6 +1,9 @@
 #ifndef ROAD_H
 #define ROAD_H
 
+#include <QSharedPointer>
+
+
 
 class Road
 {
@@ -10,6 +13,7 @@ private:
 
 public:
     Road();
+    Road(int *startCoordinates, int *endCoordinates);
 
 
     int *getStartCoordinates() const;
@@ -17,5 +21,7 @@ public:
     int *getEndCoordinates() const;
     void setEndCoordinates(int *newEndCoordinates);
 };
+
+typedef QSharedPointer<Road> RoadPointer;
 
 #endif // ROAD_H

@@ -46,7 +46,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/img/img/background.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="Line" name="road1hor">
+   <widget class="Line" name="road1horRight">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -65,7 +65,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road0hor">
+   <widget class="Line" name="road0horLeft">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -81,7 +81,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road2hor">
+   <widget class="Line" name="road2horLeft">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -97,7 +97,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road3hor">
+   <widget class="Line" name="road3horRight">
     <property name="geometry">
      <rect>
       <x>-20</x>
@@ -113,7 +113,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road5hor">
+   <widget class="Line" name="road5horRight">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -129,7 +129,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road4hor">
+   <widget class="Line" name="road4horLeft">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -145,7 +145,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road0ver">
+   <widget class="Line" name="road0verDown">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -161,7 +161,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road7hor">
+   <widget class="Line" name="road7horLeft">
     <property name="geometry">
      <rect>
       <x>720</x>
@@ -177,7 +177,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road8hor">
+   <widget class="Line" name="road8horRight">
     <property name="geometry">
      <rect>
       <x>720</x>
@@ -193,7 +193,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road9hor">
+   <widget class="Line" name="road9horRight">
     <property name="geometry">
      <rect>
       <x>720</x>
@@ -209,7 +209,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road10hor">
+   <widget class="Line" name="road10horLeft">
     <property name="geometry">
      <rect>
       <x>720</x>
@@ -225,7 +225,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road14hor">
+   <widget class="Line" name="road14horRight">
     <property name="geometry">
      <rect>
       <x>1390</x>
@@ -241,7 +241,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road13hor">
+   <widget class="Line" name="road13horLeft">
     <property name="geometry">
      <rect>
       <x>1390</x>
@@ -257,7 +257,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road11hor">
+   <widget class="Line" name="road11horLeft">
     <property name="geometry">
      <rect>
       <x>1390</x>
@@ -273,7 +273,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road12hor">
+   <widget class="Line" name="road12horRight">
     <property name="geometry">
      <rect>
       <x>1390</x>
@@ -289,7 +289,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road6hor">
+   <widget class="Line" name="road6horLeft">
     <property name="geometry">
      <rect>
       <x>720</x>
@@ -305,7 +305,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="road6ver">
+   <widget class="Line" name="road6verUp">
     <property name="geometry">
      <rect>
       <x>990</x>
@@ -321,7 +321,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road5ver">
+   <widget class="Line" name="road5verUp">
     <property name="geometry">
      <rect>
       <x>690</x>
@@ -337,7 +337,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road2ver">
+   <widget class="Line" name="road2verUp">
     <property name="geometry">
      <rect>
       <x>690</x>
@@ -353,7 +353,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road1ver">
+   <widget class="Line" name="road1verDown">
     <property name="geometry">
      <rect>
       <x>650</x>
@@ -369,7 +369,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road4ver">
+   <widget class="Line" name="road4verUp">
     <property name="geometry">
      <rect>
       <x>690</x>
@@ -385,7 +385,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road3ver">
+   <widget class="Line" name="road3verDown">
     <property name="geometry">
      <rect>
       <x>650</x>
@@ -401,7 +401,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road12ver">
+   <widget class="Line" name="road12verUp">
     <property name="geometry">
      <rect>
       <x>1360</x>
@@ -417,7 +417,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road11ver">
+   <widget class="Line" name="road11verDown">
     <property name="geometry">
      <rect>
       <x>1310</x>
@@ -433,7 +433,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road13ver">
+   <widget class="Line" name="road13verDown">
     <property name="geometry">
      <rect>
       <x>1310</x>
@@ -449,7 +449,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road15ver">
+   <widget class="Line" name="road15verUp">
     <property name="geometry">
      <rect>
       <x>1630</x>
@@ -465,7 +465,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road14ver">
+   <widget class="Line" name="road14verDown">
     <property name="geometry">
      <rect>
       <x>1590</x>
@@ -481,7 +481,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road10ver">
+   <widget class="Line" name="road10verUp">
     <property name="geometry">
      <rect>
       <x>1360</x>
@@ -497,7 +497,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road9ver">
+   <widget class="Line" name="road9verDown">
     <property name="geometry">
      <rect>
       <x>1310</x>
@@ -513,7 +513,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road8ver">
+   <widget class="Line" name="road8verUp">
     <property name="geometry">
      <rect>
       <x>1360</x>
@@ -529,7 +529,7 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="Line" name="road7ver">
+   <widget class="Line" name="road7verDown">
     <property name="geometry">
      <rect>
       <x>1310</x>
@@ -547,37 +547,37 @@
    </widget>
    <zorder>map</zorder>
    <zorder>horizontalSlider</zorder>
-   <zorder>road1hor</zorder>
-   <zorder>road0hor</zorder>
-   <zorder>road2hor</zorder>
-   <zorder>road3hor</zorder>
-   <zorder>road5hor</zorder>
-   <zorder>road4hor</zorder>
-   <zorder>road0ver</zorder>
-   <zorder>road7hor</zorder>
-   <zorder>road8hor</zorder>
-   <zorder>road9hor</zorder>
-   <zorder>road10hor</zorder>
-   <zorder>road14hor</zorder>
-   <zorder>road13hor</zorder>
-   <zorder>road11hor</zorder>
-   <zorder>road12hor</zorder>
-   <zorder>road6hor</zorder>
-   <zorder>road6ver</zorder>
-   <zorder>road5ver</zorder>
-   <zorder>road2ver</zorder>
-   <zorder>road1ver</zorder>
-   <zorder>road4ver</zorder>
-   <zorder>road3ver</zorder>
-   <zorder>road12ver</zorder>
-   <zorder>road11ver</zorder>
-   <zorder>road13ver</zorder>
-   <zorder>road15ver</zorder>
-   <zorder>road14ver</zorder>
-   <zorder>road10ver</zorder>
-   <zorder>road9ver</zorder>
-   <zorder>road8ver</zorder>
-   <zorder>road7ver</zorder>
+   <zorder>road1horRight</zorder>
+   <zorder>road0horLeft</zorder>
+   <zorder>road2horLeft</zorder>
+   <zorder>road3horRight</zorder>
+   <zorder>road5horRight</zorder>
+   <zorder>road4horLeft</zorder>
+   <zorder>road0verDown</zorder>
+   <zorder>road7horLeft</zorder>
+   <zorder>road8horRight</zorder>
+   <zorder>road9horRight</zorder>
+   <zorder>road10horLeft</zorder>
+   <zorder>road14horRight</zorder>
+   <zorder>road13horLeft</zorder>
+   <zorder>road11horLeft</zorder>
+   <zorder>road12horRight</zorder>
+   <zorder>road6horLeft</zorder>
+   <zorder>road6verUp</zorder>
+   <zorder>road5verUp</zorder>
+   <zorder>road2verUp</zorder>
+   <zorder>road1verDown</zorder>
+   <zorder>road4verUp</zorder>
+   <zorder>road3verDown</zorder>
+   <zorder>road12verUp</zorder>
+   <zorder>road11verDown</zorder>
+   <zorder>road13verDown</zorder>
+   <zorder>road15verUp</zorder>
+   <zorder>road14verDown</zorder>
+   <zorder>road10verUp</zorder>
+   <zorder>road9verDown</zorder>
+   <zorder>road8verUp</zorder>
+   <zorder>road7verDown</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">

@@ -2,12 +2,13 @@
 #define VEHICLE_H
 
 #include <QImage>
+#include <QSharedPointer>
 
 typedef enum  {
-    WEST,
-    EAST,
-    SOUTH,
-    NORTH
+    UP,
+    LEFT,
+    DOWN,
+    RIGHT
 } Direction;
 
 class Vehicle
@@ -17,7 +18,9 @@ protected:
     int basicVelocity;
     int *currentCoordinates;
     Direction currentDirection;
+    const Direction initialDirection;
     virtual void drive(Direction direction) = 0;
+    explicit Vehicle(Direction initialDirection) : initialDirection(initialDirection) {};
 
 public:
     QImage *getImage() const;
@@ -28,6 +31,11 @@ public:
     void setCurrentCoordinates(int *newCurrentCoordinates);
     Direction getCurrentDirection() const;
     void setCurrentDirection(Direction newCurrentDirection);
+    Direction getInitialDirection() const;
+
+    void rotateVehicle(Direction targetDirection);
 };
+
+typedef QSharedPointer<Vehicle> VehiclePointer;
 
 #endif // VEHICLE_H

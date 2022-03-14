@@ -1,5 +1,32 @@
 #include "vehicle.h"
 
+Direction Vehicle::getInitialDirection() const
+{
+    return initialDirection;
+}
+
+void Vehicle::rotateVehicle(Direction targetDirection)
+{
+    QTransform transform;
+
+    //if currentDirection is UP and target is LEFT then rotate 90 degrees(right)
+    //else if current direction is to the right of the target direction then rotate 270 degrees(left)
+    //else rotate 90 degrees(right)
+    if (static_cast<int>(currentDirection) == 0 && static_cast<int>(targetDirection) == 3) {
+        transform.rotate(90);
+    } else if (static_cast<int>(currentDirection) == 3 && static_cast<int>(targetDirection) == 0) {
+        transform.rotate(270);
+    }
+    else if (static_cast<int>(currentDirection) < static_cast<int>(targetDirection)){
+        transform.rotate(270);
+    } else {
+        transform.rotate(90);
+    }
+
+    QImage rotatedImage = this->image->transformed(transform);
+    *this->image = (rotatedImage);
+}
+
 QImage *Vehicle::getImage() const
 {
     return image;
@@ -27,7 +54,7 @@ int *Vehicle::getCurrentCoordinates() const
 
 void Vehicle::setCurrentCoordinates(int *newCurrentCoordinates)
 {
-    currentCoordinates = newCurrentCoordinates;
+    this->currentCoordinates = newCurrentCoordinates;
 }
 
 Direction Vehicle::getCurrentDirection() const
