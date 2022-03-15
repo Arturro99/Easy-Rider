@@ -28,6 +28,8 @@ set(PROJECT_SOURCES
         trafficrules.h trafficrules.cpp
         trafficlight.h trafficlight.cpp
         sign.h sign.cpp
+        drivethread.h drivethread.cpp
+        roadrepository.h roadrepository.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -4,6 +4,8 @@
 #include <QImage>
 #include <QSharedPointer>
 
+#include "road.h"
+
 typedef enum  {
     UP,
     LEFT,
@@ -17,9 +19,9 @@ protected:
     QImage *image;
     int basicVelocity;
     int *currentCoordinates;
+    RoadPointer currentRoad;
     Direction currentDirection;
     const Direction initialDirection;
-    virtual void drive(Direction direction) = 0;
     explicit Vehicle(Direction initialDirection) : initialDirection(initialDirection) {};
 
 public:
@@ -32,8 +34,12 @@ public:
     Direction getCurrentDirection() const;
     void setCurrentDirection(Direction newCurrentDirection);
     Direction getInitialDirection() const;
+    virtual void drive() = 0;
+
 
     void rotateVehicle(Direction targetDirection);
+    RoadPointer getCurrentRoad() const;
+    void setCurrentRoad(RoadPointer newCurrentRoad);
 };
 
 typedef QSharedPointer<Vehicle> VehiclePointer;

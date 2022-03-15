@@ -27,6 +27,16 @@ void Vehicle::rotateVehicle(Direction targetDirection)
     *this->image = (rotatedImage);
 }
 
+RoadPointer Vehicle::getCurrentRoad() const
+{
+    return currentRoad;
+}
+
+void Vehicle::setCurrentRoad(RoadPointer newCurrentRoad)
+{
+    currentRoad = newCurrentRoad;
+}
+
 QImage *Vehicle::getImage() const
 {
     return image;

@@ -49,9 +49,9 @@
    <widget class="Line" name="road1horRight">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>-30</x>
       <y>90</y>
-      <width>641</width>
+      <width>681</width>
       <height>20</height>
      </rect>
     </property>
@@ -100,9 +100,9 @@
    <widget class="Line" name="road3horRight">
     <property name="geometry">
      <rect>
-      <x>-20</x>
+      <x>-30</x>
       <y>310</y>
-      <width>661</width>
+      <width>681</width>
       <height>20</height>
      </rect>
     </property>
@@ -116,9 +116,9 @@
    <widget class="Line" name="road5horRight">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>-30</x>
       <y>500</y>
-      <width>631</width>
+      <width>681</width>
       <height>16</height>
      </rect>
     </property>

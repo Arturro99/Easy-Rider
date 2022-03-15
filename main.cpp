@@ -5,8 +5,10 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-//    w.setWindowState(Qt::WindowFullScreen);
+    VehiclePointer car = VehiclePointer(new Car(RIGHT));
+    MainWindow w(car);
     w.show();
+    DriveThread thread(car);
+    thread.run();
     return a.exec();
 }

@@ -37,9 +37,7 @@ public:
         this->basicVelocity = 10;
         this->currentDirection = initialDirection;
     }
-    virtual void drive(Direction direction) {
-
-    }
+    virtual void drive();
 };
 
 

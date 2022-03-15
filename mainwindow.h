@@ -4,6 +4,9 @@
 #include "traffic.h"
 #include "road.h"
 #include "trafficrules.h"
+#include "drivethread.h"
+#include "car.h"
+#include "roadrepository.h"
 
 #include <QMainWindow>
 #include <QSharedPointer>
@@ -18,32 +21,22 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(VehiclePointer vehicle, QWidget *parent = nullptr);
     ~MainWindow();
-
-    void paintEvent(QPaintEvent *event);
-    void paintCars(QPaintEvent *event);
-    void loadVehicles();
-
-    QPixmap *getBackground() const;
-    void setBackground(QPixmap *newPixmap);
-
-    void rotateVehicle(Direction direction, VehiclePointer vehicle);
-
 
 private:
     Ui::MainWindow *ui;
+    VehiclePointer car;
+    RoadRepository roadRepository;
     Traffic traffic;
     TrafficRules trafficRules;
-    QVector<RoadPointer> horizontalRoads;
-    QVector<RoadPointer> verticalRoads;
     QSharedPointer<QPixmap> background;
-    uchar* data;
-    void delay();
     void assignStreets();
-//    void resizeEvent(QResizeEvent *evt); // declare The members
+    void paintEvent(QPaintEvent *event);
+    void paintCars(QPaintEvent *event);
+    QPixmap *getBackground() const;
+    void setBackground(QPixmap *newPixmap);
 
-    VehiclePointer car;
 
 signals:
 
