@@ -166,7 +166,7 @@
      <rect>
       <x>720</x>
       <y>270</y>
-      <width>571</width>
+      <width>581</width>
       <height>16</height>
      </rect>
     </property>
@@ -182,7 +182,7 @@
      <rect>
       <x>720</x>
       <y>310</y>
-      <width>571</width>
+      <width>581</width>
       <height>16</height>
      </rect>
     </property>
@@ -260,9 +260,9 @@
    <widget class="Line" name="road11horLeft">
     <property name="geometry">
      <rect>
-      <x>1390</x>
+      <x>1380</x>
       <y>270</y>
-      <width>191</width>
+      <width>201</width>
       <height>20</height>
      </rect>
     </property>
@@ -276,9 +276,9 @@
    <widget class="Line" name="road12horRight">
     <property name="geometry">
      <rect>
-      <x>1390</x>
+      <x>1380</x>
       <y>310</y>
-      <width>191</width>
+      <width>201</width>
       <height>20</height>
      </rect>
     </property>
@@ -325,9 +325,9 @@
     <property name="geometry">
      <rect>
       <x>690</x>
-      <y>830</y>
+      <y>810</y>
       <width>20</width>
-      <height>81</height>
+      <height>101</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -391,7 +391,7 @@
       <x>650</x>
       <y>540</y>
       <width>20</width>
-      <height>371</height>
+      <height>221</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -545,6 +545,22 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
+   <widget class="Line" name="road3_2verDown">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>810</y>
+      <width>20</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
    <zorder>map</zorder>
    <zorder>horizontalSlider</zorder>
    <zorder>road1horRight</zorder>
@@ -578,6 +594,7 @@
    <zorder>road9verDown</zorder>
    <zorder>road8verUp</zorder>
    <zorder>road7verDown</zorder>
+   <zorder>road3_2verDown</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">

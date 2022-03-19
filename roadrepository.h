@@ -23,8 +23,8 @@ private:
 public:
     RoadRepository();
 
-    RoadPointer findRoadByStartCoordinates(int* startCoordinates);
-    void addRoad(RoadPointer road);
+    bool findByCoordinates(int* startCoordinates, Direction currentDirection, RoadPointer &currentRoad);
+    void addRoads(QVector<RoadPointer> road);
 
     const QVector<RoadPointer> &getVerticalRoads() const;
     const RoadPointer &getVerticalRoad(int i) const;
@@ -51,5 +51,7 @@ public:
     void addHorizontalLeftRoad(RoadPointer horizontalLeftRoad);
     void addHorizontalRightRoad(RoadPointer horizontalRightRoad);
 };
+
+typedef QSharedPointer<RoadRepository> RoadRepositoryPointer;
 
 #endif // ROADREPOSITORY_H

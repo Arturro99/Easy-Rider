@@ -4,9 +4,11 @@
 
 int main(int argc, char *argv[])
 {
+    srand(time(0));
     QApplication a(argc, argv);
-    VehiclePointer car = VehiclePointer(new Car(RIGHT));
-    MainWindow w(car);
+    RoadRepositoryPointer roadRepository = RoadRepositoryPointer(new RoadRepository());
+    VehiclePointer car = VehiclePointer(new Car(RIGHT, roadRepository));
+    MainWindow w(car, roadRepository);
     w.show();
     DriveThread thread(car);
     thread.run();

@@ -30,6 +30,7 @@ set(PROJECT_SOURCES
         sign.h sign.cpp
         drivethread.h drivethread.cpp
         roadrepository.h roadrepository.cpp
+        vehiclerepository.h vehiclerepository.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

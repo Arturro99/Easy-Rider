@@ -3,7 +3,12 @@
 
 #include <QSharedPointer>
 
-
+typedef enum  {
+    UP,
+    LEFT,
+    DOWN,
+    RIGHT
+} Direction;
 
 class Road
 {

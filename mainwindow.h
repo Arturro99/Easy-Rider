@@ -7,6 +7,7 @@
 #include "drivethread.h"
 #include "car.h"
 #include "roadrepository.h"
+#include "vehiclerepository.h"
 
 #include <QMainWindow>
 #include <QSharedPointer>
@@ -21,13 +22,14 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(VehiclePointer vehicle, QWidget *parent = nullptr);
+    MainWindow(VehiclePointer vehicle, RoadRepositoryPointer roadRepository,
+               VehicleRepositoryPointer vehicleRepository, QWidget *parent = nullptr);
     ~MainWindow();
 
 private:
     Ui::MainWindow *ui;
     VehiclePointer car;
-    RoadRepository roadRepository;
+    RoadRepositoryPointer roadRepository;
     Traffic traffic;
     TrafficRules trafficRules;
     QSharedPointer<QPixmap> background;
