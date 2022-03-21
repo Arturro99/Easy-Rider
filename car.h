@@ -11,7 +11,7 @@ class Car : public Vehicle
 public:
     Car(Direction initialDirection, RoadRepositoryPointer roadRepository) : Vehicle(initialDirection, roadRepository)
     {
-        this->id = uuid::generate_uuid_v4();
+        this->id = QUuid::createUuid();
         QImage *image = new QImage(":/img/img/car.png");
         QTransform transform;
         switch (initialDirection) {

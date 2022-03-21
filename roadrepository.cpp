@@ -10,8 +10,8 @@ bool RoadRepository::findByCoordinates(int* startCoordinates, Direction currentD
     QVector<RoadPointer> roads;
     switch (currentDirection) {
         case UP: {
-            std::copy(verticalUpRoads.begin(), verticalUpRoads.end(), std::back_inserter(roads));
-            for (auto road: roads) {
+//            std::copy(verticalUpRoads.begin(), verticalUpRoads.end(), std::back_inserter(roads));
+            for (auto &road: this->verticalUpRoads) {
                 if (abs(road->getStartCoordinates()[0]-startCoordinates[0]) <= 100 && abs(road->getEndCoordinates()[1] - startCoordinates[1]) <= 100) {
                     currentRoad = road;
                     return true;
@@ -20,8 +20,8 @@ bool RoadRepository::findByCoordinates(int* startCoordinates, Direction currentD
             return false;
         }
         case DOWN: {
-            std::copy(verticalDownRoads.begin(), verticalDownRoads.end(), std::back_inserter(roads));
-            for (auto road: roads) {
+//            std::copy(verticalDownRoads.begin(), verticalDownRoads.end(), std::back_inserter(roads));
+            for (auto &road: this->verticalDownRoads) {
                 if (abs(road->getStartCoordinates()[0]-startCoordinates[0]) <= 100 && abs(road->getStartCoordinates()[1] - startCoordinates[1]) <= 100) {
                     currentRoad = road;
                     return true;
@@ -30,8 +30,8 @@ bool RoadRepository::findByCoordinates(int* startCoordinates, Direction currentD
             return false;
         }
         case RIGHT: {
-            std::copy(horizontalRightRoads.begin(), horizontalRightRoads.end(), std::back_inserter(roads));
-            for (auto road: roads) {
+//            std::copy(horizontalRightRoads.begin(), horizontalRightRoads.end(), std::back_inserter(roads));
+            for (auto &road: this->horizontalRightRoads) {
                 if (abs(road->getStartCoordinates()[0]-startCoordinates[0]) <= 100 && abs(road->getStartCoordinates()[1] - startCoordinates[1]) <= 100) {
                     currentRoad = road;
                     return true;
@@ -40,8 +40,8 @@ bool RoadRepository::findByCoordinates(int* startCoordinates, Direction currentD
             return false;
         }
         case LEFT: {
-            std::copy(horizontalLeftRoads.begin(), horizontalLeftRoads.end(), std::back_inserter(roads));
-            for (auto road: roads) {
+//            std::copy(horizontalLeftRoads.begin(), horizontalLeftRoads.end(), std::back_inserter(roads));
+            for (auto &road: this->horizontalLeftRoads) {
                 if (abs(road->getEndCoordinates()[0]-startCoordinates[0]) <= 100 && abs(road->getStartCoordinates()[1] - startCoordinates[1]) <= 100) {
                     currentRoad = road;
                     return true;

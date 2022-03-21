@@ -54,8 +54,8 @@ Direction Vehicle::randomDirection(Direction currentDirection)
     while(targetDirection == excludedDirection) {
         targetDirection = static_cast<Direction>(rand() % 4);
     }
+    qInfo() << "Turning " << targetDirection;
     return targetDirection;
-//    return DOWN;
 }
 
 RoadPointer Vehicle::getCurrentRoad() const
@@ -68,14 +68,9 @@ void Vehicle::setCurrentRoad(RoadPointer newCurrentRoad)
     currentRoad = newCurrentRoad;
 }
 
-const std::string &Vehicle::getId() const
+const QUuid &Vehicle::getId() const
 {
     return id;
-}
-
-void Vehicle::setId(const std::string &newId)
-{
-    id = newId;
 }
 
 QImage *Vehicle::getImage() const

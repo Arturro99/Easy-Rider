@@ -24,8 +24,3 @@ Traffic::Traffic()
 {
     this->setTrafficIntensity(50);
 }
-
-void Traffic::generateTraffic(VehiclePointer car)
-{
-
-}

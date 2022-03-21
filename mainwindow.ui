@@ -151,7 +151,7 @@
       <x>670</x>
       <y>130</y>
       <width>20</width>
-      <height>131</height>
+      <height>151</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -197,7 +197,7 @@
     <property name="geometry">
      <rect>
       <x>720</x>
-      <y>480</y>
+      <y>490</y>
       <width>571</width>
       <height>16</height>
      </rect>
@@ -212,8 +212,8 @@
    <widget class="Line" name="road10horLeft">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>760</y>
+      <x>710</x>
+      <y>780</y>
       <width>571</width>
       <height>16</height>
      </rect>
@@ -230,7 +230,7 @@
      <rect>
       <x>1390</x>
       <y>680</y>
-      <width>191</width>
+      <width>231</width>
       <height>20</height>
      </rect>
     </property>
@@ -261,7 +261,7 @@
     <property name="geometry">
      <rect>
       <x>1380</x>
-      <y>270</y>
+      <y>280</y>
       <width>201</width>
       <height>20</height>
      </rect>
@@ -277,7 +277,7 @@
     <property name="geometry">
      <rect>
       <x>1380</x>
-      <y>310</y>
+      <y>320</y>
       <width>201</width>
       <height>20</height>
      </rect>
@@ -341,9 +341,9 @@
     <property name="geometry">
      <rect>
       <x>690</x>
-      <y>360</y>
+      <y>340</y>
       <width>20</width>
-      <height>101</height>
+      <height>121</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -359,7 +359,7 @@
       <x>650</x>
       <y>360</y>
       <width>20</width>
-      <height>101</height>
+      <height>121</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -423,7 +423,7 @@
       <x>1310</x>
       <y>540</y>
       <width>20</width>
-      <height>201</height>
+      <height>121</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -437,9 +437,9 @@
     <property name="geometry">
      <rect>
       <x>1310</x>
-      <y>830</y>
+      <y>820</y>
       <width>20</width>
-      <height>81</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -453,9 +453,9 @@
     <property name="geometry">
      <rect>
       <x>1630</x>
-      <y>360</y>
+      <y>300</y>
       <width>20</width>
-      <height>281</height>
+      <height>341</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -469,9 +469,9 @@
     <property name="geometry">
      <rect>
       <x>1590</x>
-      <y>360</y>
+      <y>340</y>
       <width>20</width>
-      <height>281</height>
+      <height>301</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -561,6 +561,22 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
+   <widget class="Line" name="road11_2verDown">
+    <property name="geometry">
+     <rect>
+      <x>1310</x>
+      <y>700</y>
+      <width>20</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
    <zorder>map</zorder>
    <zorder>horizontalSlider</zorder>
    <zorder>road1horRight</zorder>
@@ -595,6 +611,7 @@
    <zorder>road8verUp</zorder>
    <zorder>road7verDown</zorder>
    <zorder>road3_2verDown</zorder>
+   <zorder>road11_2verDown</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">

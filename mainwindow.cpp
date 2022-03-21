@@ -3,30 +3,39 @@
 
 #include <iostream>
 #include <QPainter>
-#include <QPoint>
 #include <QFrame>
 #include <QRegularExpression>
 #include <QtGlobal>
 #include <QTime>
 
-MainWindow::MainWindow(VehiclePointer vehicle, RoadRepositoryPointer roadRepository, QWidget *parent)
+MainWindow::MainWindow(RoadRepositoryPointer &roadRepository,
+                       VehicleRepositoryPointer &vehicleRepositoryPointer, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+        srand(time(0));
     this->roadRepository = roadRepository;
+    this->vehicleRepositoryPointer = vehicleRepositoryPointer;
     ui->setupUi(this);
     assignStreets();
 
-    car = vehicle;
-    srand( unsigned(time(0)));
-    int randomHorizontalRoad = rand() % this->roadRepository->getSpawningHorizontalRoads().length();
-    car->setCurrentCoordinates(new int[] {this->roadRepository->getSpawningHorizontalRoads().at(randomHorizontalRoad)->getStartCoordinates()[0],
-                this->roadRepository->getSpawningHorizontalRoads().at(randomHorizontalRoad)->getStartCoordinates()[1]});
-    RoadPointer currentRoad;
-    roadRepository->findByCoordinates(car->getCurrentCoordinates(), car->getCurrentDirection(), currentRoad);
-    car->setCurrentRoad(currentRoad);
     ui->horizontalSlider->setValue(50);
-    traffic.generateTraffic(car);
+
+    VehiclePointer car = *new VehiclePointer(new Car(RIGHT, roadRepository));
+    vehicleRepositoryPointer->addVehicle(car);
+
+    int randomHorizontalRoad = rand() % roadRepository->getSpawningHorizontalRoads().length();
+    for (auto vehicle : vehicleRepositoryPointer->getVehicles()) {
+        vehicle->setCurrentCoordinates(new int[] {roadRepository->getSpawningHorizontalRoads().at(randomHorizontalRoad)->getStartCoordinates()[0],
+                    roadRepository->getSpawningHorizontalRoads().at(randomHorizontalRoad)->getStartCoordinates()[1]});
+        RoadPointer currentRoad = *new RoadPointer(new Road);
+        roadRepository->findByCoordinates(vehicle->getCurrentCoordinates(), vehicle->getCurrentDirection(), currentRoad);
+        vehicle->setCurrentRoad(currentRoad);
+    }
+    DriveThread thread(car);
+    QThread::currentThread()->setObjectName("Main thread");
+    ThreadManager manager(vehicleRepositoryPointer);
+    manager.start(car);
 }
 
 MainWindow::~MainWindow()
@@ -111,11 +120,18 @@ void MainWindow::paintEvent(QPaintEvent *event) {
     background = QSharedPointer<QPixmap>(new QPixmap(":/img/img/background.png"));
     QPainter painter(background.get());
 
-    QPoint point;
-    point.setX(car->getCurrentCoordinates()[0]);
-    point.setY(car->getCurrentCoordinates()[1]);
+    for (auto &vehicle : vehicleRepositoryPointer->getVehicles()) {
+        if (vehicle->getImage() == NULL) {
+            vehicleRepositoryPointer->removeVehicle(vehicle->getId());
+            continue;
+        }
+        QPoint point;
+        QImage image = *vehicle->getImage();
+        point.setX(vehicle->getCurrentCoordinates()[0]);
+        point.setY(vehicle->getCurrentCoordinates()[1]);
+        this->qPoints.append(point);
+        painter.drawImage(point, image);
+    }
 
-    QImage copy = *car->getImage();
-    painter.drawImage(point, copy);
     ui->map->setPixmap(*background);
 }

@@ -11,7 +11,8 @@ public:
     VehicleRepository();
 
     void addVehicle(VehiclePointer vehicle);
-    void removeVehicle(std::string id);
+    void removeVehicle(QUuid id);
+    const QVector<VehiclePointer> getVehicles();
 };
 
 #endif // VEHICLEREPOSITORY_H

@@ -31,6 +31,7 @@ set(PROJECT_SOURCES
         drivethread.h drivethread.cpp
         roadrepository.h roadrepository.cpp
         vehiclerepository.h vehiclerepository.cpp
+        threadmanager.h threadmanager.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
