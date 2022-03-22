@@ -6,9 +6,8 @@
 #include <sstream>
 #include <QUuid>
 #include <QDebug>
-
 #include "roadrepository.h"
-#include "roadrepository.h"
+#include "randgenerator.h"
 
 class Vehicle : public QObject
 {   

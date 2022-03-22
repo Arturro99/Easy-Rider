@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QTime>
 #include <QCoreApplication>
+#include <QThread>
 
 void Car::drive() {
     while (true) {
@@ -13,12 +14,24 @@ void Car::drive() {
                 setCurrentCoordinates(new int[] {++getCurrentCoordinates()[0], getCurrentCoordinates()[1]});
                 QTime dieTime= QTime::currentTime().addMSecs(10);
                 while (QTime::currentTime() < dieTime)
-                    QCoreApplication::processEvents(QEventLoop::AllEvents, 10);
+                    QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
                 if (this->getCurrentCoordinates()[0] == currentRoad->getEndCoordinates()[0]) {
-                    rotateVehicle(randomDirection(currentDirection));
-                    while (!roadRepository->findByCoordinates(this->getCurrentCoordinates(), currentDirection, currentRoad)) {
-                        rotateVehicle(randomDirection(currentDirection));
+//                    const Direction directionBeforeRotation = currentDirection;
+//                    rotateVehicle(randomDirection(directionBeforeRotation));
+//                    currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), currentDirection);
+//                    while (!currentRoad->getStartCoordinates()) {
+//                        rotateVehicle(randomDirection(directionBeforeRotation));
+//                        currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), currentDirection);
+//                    }
+//                    break;
+//                }
+                    Direction targetDirection = randomDirection(currentDirection);
+                    currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), targetDirection);
+                    while (!currentRoad->getStartCoordinates()) {
+                        targetDirection = randomDirection(currentDirection);
+                        currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), targetDirection);
                     }
+                    rotateVehicle(targetDirection);
                     break;
                 }
             }
@@ -30,7 +43,7 @@ void Car::drive() {
                 setCurrentCoordinates(new int[] {getCurrentCoordinates()[0], ++getCurrentCoordinates()[1]});
                 QTime dieTime= QTime::currentTime().addMSecs(10);
                 while (QTime::currentTime() < dieTime)
-                    QCoreApplication::processEvents(QEventLoop::AllEvents, 1000);
+                    QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
                     if (this->getCurrentCoordinates()[1] == currentRoad->getEndCoordinates()[1]) {
                         for (auto road : roadRepository->getEndingVerticalRoads()) {
                             if (*this->getCurrentRoad().get() == *road.get()) {
@@ -38,10 +51,13 @@ void Car::drive() {
                                 return;
                             }
                         }
-                        rotateVehicle(randomDirection(currentDirection));
-                        while (!roadRepository->findByCoordinates(this->getCurrentCoordinates(), currentDirection, currentRoad)) {
-                            rotateVehicle(randomDirection(currentDirection));
+                        Direction targetDirection = randomDirection(currentDirection);
+                        currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), targetDirection);
+                        while (!currentRoad->getStartCoordinates()) {
+                            targetDirection = randomDirection(currentDirection);
+                            currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), targetDirection);
                         }
+                        rotateVehicle(targetDirection);
                         break;
                     }
             }
@@ -53,7 +69,7 @@ void Car::drive() {
                 setCurrentCoordinates(new int[] {getCurrentCoordinates()[0], --getCurrentCoordinates()[1]});
                 QTime dieTime= QTime::currentTime().addMSecs(10);
                 while (QTime::currentTime() < dieTime)
-                    QCoreApplication::processEvents(QEventLoop::AllEvents, 1000);
+                    QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
                     if (this->getCurrentCoordinates()[1] == currentRoad->getStartCoordinates()[1]) {
                         for (auto road : roadRepository->getEndingVerticalRoads()) {
                             if (*this->getCurrentRoad().get() == *road.get()) {
@@ -61,10 +77,21 @@ void Car::drive() {
                                 return;
                             }
                         }
-                        rotateVehicle(randomDirection(currentDirection));
-                        while (!roadRepository->findByCoordinates(this->getCurrentCoordinates(), currentDirection, currentRoad)) {
-                            rotateVehicle(randomDirection(currentDirection));
+//                        const Direction directionBeforeRotation = currentDirection;
+//                        rotateVehicle(randomDirection(directionBeforeRotation));
+//                        currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), currentDirection);
+//                        while (!currentRoad->getStartCoordinates()) {
+//                            rotateVehicle(randomDirection(directionBeforeRotation));
+//                            currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), currentDirection);
+//                        }
+//                        break;
+                        Direction targetDirection = randomDirection(currentDirection);
+                        currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), targetDirection);
+                        while (!currentRoad->getStartCoordinates()) {
+                            targetDirection = randomDirection(currentDirection);
+                            currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), targetDirection);
                         }
+                        rotateVehicle(targetDirection);
                         break;
                     }
             }
@@ -76,7 +103,7 @@ void Car::drive() {
                 setCurrentCoordinates(new int[] {--getCurrentCoordinates()[0], getCurrentCoordinates()[1]});
                 QTime dieTime= QTime::currentTime().addMSecs(10);
                 while (QTime::currentTime() < dieTime)
-                    QCoreApplication::processEvents(QEventLoop::AllEvents, 1000);
+                    QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
                     if (this->getCurrentCoordinates()[0] == currentRoad->getStartCoordinates()[0]) {
                         for (auto road : roadRepository->getEndingHorizontalRoads()) {
                             if (*this->getCurrentRoad().get() == *road.get()) {
@@ -84,13 +111,25 @@ void Car::drive() {
                                 return;
                             }
                         }
-                        rotateVehicle(randomDirection(currentDirection));
-                        while (!roadRepository->findByCoordinates(this->getCurrentCoordinates(), currentDirection, currentRoad)) {
-                            rotateVehicle(randomDirection(currentDirection));
+//                        const Direction directionBeforeRotation = currentDirection;
+//                        rotateVehicle(randomDirection(directionBeforeRotation));
+//                        currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), currentDirection);
+//                        while (!currentRoad->getStartCoordinates()) {
+//                            rotateVehicle(randomDirection(directionBeforeRotation));
+//                            currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), currentDirection);
+//                        }
+//                        break;
+                        Direction targetDirection = randomDirection(currentDirection);
+                        currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), targetDirection);
+                        while (!currentRoad->getStartCoordinates()) {
+                            targetDirection = randomDirection(currentDirection);
+                            currentRoad = roadRepository->findByCoordinates(this->getCurrentCoordinates(), targetDirection);
                         }
+                        rotateVehicle(targetDirection);
                         break;
+                    }
                     }
             }
         }
-    }
 }
+

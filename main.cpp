@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "drivethreadcreator.h"
 
 #include <QApplication>
 
@@ -12,6 +13,11 @@ int main(int argc, char *argv[])
 
     MainWindow w(roadRepository, vehicleRepository);
     w.show();
+
+    ThreadManager manager(vehicleRepository);
+    DriveThreadCreator thread(roadRepository, vehicleRepository, manager);
+    thread.run();
+    thread.setAutoDelete(true);
 
     return a.exec();
 }

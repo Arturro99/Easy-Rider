@@ -28,6 +28,7 @@ public:
     void run() Q_DECL_OVERRIDE;
 
 
+
     VehiclePointer getVehicle() const;
 };
 

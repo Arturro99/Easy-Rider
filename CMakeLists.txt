@@ -32,6 +32,8 @@ set(PROJECT_SOURCES
         roadrepository.h roadrepository.cpp
         vehiclerepository.h vehiclerepository.cpp
         threadmanager.h threadmanager.cpp
+        randgenerator.h randgenerator.cpp
+        drivethreadcreator.h drivethreadcreator.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

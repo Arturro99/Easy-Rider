@@ -5,6 +5,7 @@ ThreadManager::ThreadManager(VehicleRepositoryPointer vehicleRepository, QObject
     : QObject{parent}
 {
     this->vehicleRepository = vehicleRepository;
+    QThreadPool::globalInstance()->setMaxThreadCount(QThread::idealThreadCount());
 }
 
 void ThreadManager::start(VehiclePointer vehicle)

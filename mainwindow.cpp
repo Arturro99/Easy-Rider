@@ -13,29 +13,13 @@ MainWindow::MainWindow(RoadRepositoryPointer &roadRepository,
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-        srand(time(0));
+
     this->roadRepository = roadRepository;
     this->vehicleRepositoryPointer = vehicleRepositoryPointer;
     ui->setupUi(this);
     assignStreets();
 
     ui->horizontalSlider->setValue(50);
-
-    VehiclePointer car = *new VehiclePointer(new Car(RIGHT, roadRepository));
-    vehicleRepositoryPointer->addVehicle(car);
-
-    int randomHorizontalRoad = rand() % roadRepository->getSpawningHorizontalRoads().length();
-    for (auto vehicle : vehicleRepositoryPointer->getVehicles()) {
-        vehicle->setCurrentCoordinates(new int[] {roadRepository->getSpawningHorizontalRoads().at(randomHorizontalRoad)->getStartCoordinates()[0],
-                    roadRepository->getSpawningHorizontalRoads().at(randomHorizontalRoad)->getStartCoordinates()[1]});
-        RoadPointer currentRoad = *new RoadPointer(new Road);
-        roadRepository->findByCoordinates(vehicle->getCurrentCoordinates(), vehicle->getCurrentDirection(), currentRoad);
-        vehicle->setCurrentRoad(currentRoad);
-    }
-    DriveThread thread(car);
-    QThread::currentThread()->setObjectName("Main thread");
-    ThreadManager manager(vehicleRepositoryPointer);
-    manager.start(car);
 }
 
 MainWindow::~MainWindow()
@@ -75,9 +59,10 @@ void MainWindow::assignStreets()
         }
 
 
-        if ((startCoordinates[1] <= 0 && (verticalDownLines.contains(line))) ||
-                (endCoordinates[1] >= 900 && verticalUpLines.contains(line))) {
-            roadRepository->addSpawningVerticalRoad(roadRepository->getVerticalRoad(i));
+        if (startCoordinates[1] <= 0 && verticalDownLines.contains(line)) {
+            roadRepository->addSpawningVerticalDownRoad(roadRepository->getVerticalRoad(i));
+        } else if (endCoordinates[1] >= 900 && verticalUpLines.contains(line)) {
+            roadRepository->addSpawningVerticalUpRoad(roadRepository->getVerticalRoad(i));
         }
         if ((startCoordinates[1] <= 0 && (verticalUpLines.contains(line))) ||
                 (endCoordinates[1] >= 900 && verticalDownLines.contains(line))) {

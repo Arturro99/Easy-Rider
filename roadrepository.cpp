@@ -6,53 +6,50 @@ RoadRepository::RoadRepository()
 
 }
 
-bool RoadRepository::findByCoordinates(int* startCoordinates, Direction currentDirection, RoadPointer &currentRoad) {
+RoadPointer RoadRepository::findByCoordinates(int* startCoordinates, Direction currentDirection) {
     QVector<RoadPointer> roads;
     switch (currentDirection) {
         case UP: {
 //            std::copy(verticalUpRoads.begin(), verticalUpRoads.end(), std::back_inserter(roads));
-            for (auto &road: this->verticalUpRoads) {
-                if (abs(road->getStartCoordinates()[0]-startCoordinates[0]) <= 100 && abs(road->getEndCoordinates()[1] - startCoordinates[1]) <= 100) {
-                    currentRoad = road;
-                    return true;
+            for (int i = 0; i < verticalUpRoads.size(); i++) {
+                if (abs(verticalUpRoads.at(i)->getStartCoordinates()[0]-startCoordinates[0]) <= 100 && abs(verticalUpRoads.at(i)->getEndCoordinates()[1] - startCoordinates[1]) <= 100) {
+                    return verticalUpRoads.at(i);
                 }
             }
-            return false;
+            return *new RoadPointer(new Road(nullptr, nullptr));
         }
         case DOWN: {
 //            std::copy(verticalDownRoads.begin(), verticalDownRoads.end(), std::back_inserter(roads));
-            for (auto &road: this->verticalDownRoads) {
-                if (abs(road->getStartCoordinates()[0]-startCoordinates[0]) <= 100 && abs(road->getStartCoordinates()[1] - startCoordinates[1]) <= 100) {
-                    currentRoad = road;
-                    return true;
+            for (int i = 0; i < verticalDownRoads.size(); i++) {
+                if (abs(verticalDownRoads.at(i)->getStartCoordinates()[0]-startCoordinates[0]) <= 100 && abs(verticalDownRoads.at(i)->getStartCoordinates()[1] - startCoordinates[1]) <= 100) {
+                    return verticalDownRoads.at(i);
                 }
             }
-            return false;
+            return *new RoadPointer(new Road(nullptr, nullptr));
         }
         case RIGHT: {
 //            std::copy(horizontalRightRoads.begin(), horizontalRightRoads.end(), std::back_inserter(roads));
-            for (auto &road: this->horizontalRightRoads) {
-                if (abs(road->getStartCoordinates()[0]-startCoordinates[0]) <= 100 && abs(road->getStartCoordinates()[1] - startCoordinates[1]) <= 100) {
-                    currentRoad = road;
-                    return true;
+            for (int i = 0; i < horizontalRightRoads.size(); i++) {
+                if (abs(horizontalRightRoads.at(i)->getStartCoordinates()[0]-startCoordinates[0]) <= 100 && abs(horizontalRightRoads.at(i)->getStartCoordinates()[1] - startCoordinates[1]) <= 100) {
+                    return horizontalRightRoads.at(i);
                 }
             }
-            return false;
+            return *new RoadPointer(new Road(nullptr, nullptr));
         }
         case LEFT: {
 //            std::copy(horizontalLeftRoads.begin(), horizontalLeftRoads.end(), std::back_inserter(roads));
-            for (auto &road: this->horizontalLeftRoads) {
-                if (abs(road->getEndCoordinates()[0]-startCoordinates[0]) <= 100 && abs(road->getStartCoordinates()[1] - startCoordinates[1]) <= 100) {
-                    currentRoad = road;
-                    return true;
+            for (int i = 0; i < horizontalLeftRoads.size(); i++) {
+                if (abs(horizontalLeftRoads.at(i)->getEndCoordinates()[0]-startCoordinates[0]) <= 100 && abs(horizontalLeftRoads.at(i)->getStartCoordinates()[1] - startCoordinates[1]) <= 100) {
+                    return horizontalLeftRoads.at(i);
                 }
             }
-            return false;
+            return *new RoadPointer(new Road(nullptr, nullptr));
         }
         default:
-            return false;
+            return *new RoadPointer(new Road(nullptr, nullptr));
     }
 }
+
 void RoadRepository::addRoads(QVector<RoadPointer> roads) {
     std::copy(roads.begin(), roads.end(), std::back_inserter(allRoads));
 }
@@ -80,9 +77,15 @@ void RoadRepository::addHorizontalRoad(RoadPointer road) {
     horizontalRoads.append(road);
 }
 
-const QVector<RoadPointer> &RoadRepository::getSpawningVerticalRoads() const
+const QVector<RoadPointer> &RoadRepository::getSpawningVerticalUpRoads() const
 {
-    return spawningVerticalRoads;
+    return spawningVerticalUpRoads;
+}
+
+
+const QVector<RoadPointer> &RoadRepository::getSpawningVerticalDownRoads() const
+{
+    return spawningVerticalDownRoads;
 }
 
 const QVector<RoadPointer> &RoadRepository::getSpawningHorizontalRoads() const
@@ -99,8 +102,11 @@ const QVector<RoadPointer> &RoadRepository::getEndingHorizontalRoads() const
 {
     return endingHorizontalRoads;
 }
-void RoadRepository::addSpawningVerticalRoad(RoadPointer road) {
-    spawningVerticalRoads.append(road);
+void RoadRepository::addSpawningVerticalUpRoad(RoadPointer road) {
+    spawningVerticalUpRoads.append(road);
+}
+void RoadRepository::addSpawningVerticalDownRoad(RoadPointer road) {
+    spawningVerticalDownRoads.append(road);
 }
 void RoadRepository::addSpawningHorizontalRoad(RoadPointer road) {
     spawningHorizontalRoads.append(road);

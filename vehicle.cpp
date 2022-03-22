@@ -49,10 +49,9 @@ Direction Vehicle::randomDirection(Direction currentDirection)
         break;
     }
     }
-
     Direction targetDirection = excludedDirection;
     while(targetDirection == excludedDirection) {
-        targetDirection = static_cast<Direction>(rand() % 4);
+        targetDirection = static_cast<Direction>(RandGenerator::generate(0, 3));
     }
     qInfo() << "Turning " << targetDirection;
     return targetDirection;
