@@ -6,13 +6,12 @@
 class VehicleRepository
 {
 private:
-    QVector<VehiclePointer> vehiclesOnRoads;
+    inline static QVector<VehiclePointer> vehiclesOnRoads;
 public:
-    VehicleRepository();
 
-    void addVehicle(VehiclePointer vehicle);
-    void removeVehicle(QUuid id);
-    const QVector<VehiclePointer> getVehicles();
+    static void addVehicle(VehiclePointer vehicle);
+    static void removeVehicle(QUuid id);
+    static const QVector<VehiclePointer> getVehicles();
 };
 
 #endif // VEHICLEREPOSITORY_H

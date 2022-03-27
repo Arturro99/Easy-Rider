@@ -8,14 +8,12 @@
 #include <QtGlobal>
 #include <QTime>
 
-MainWindow::MainWindow(RoadRepositoryPointer &roadRepository,
-                       VehicleRepositoryPointer &vehicleRepositoryPointer, QWidget *parent)
+MainWindow::MainWindow(RoadRepositoryPointer &roadRepository, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
 
     this->roadRepository = roadRepository;
-    this->vehicleRepositoryPointer = vehicleRepositoryPointer;
     ui->setupUi(this);
     assignStreets();
 
@@ -105,9 +103,9 @@ void MainWindow::paintEvent(QPaintEvent *event) {
     background = QSharedPointer<QPixmap>(new QPixmap(":/img/img/background.png"));
     QPainter painter(background.get());
 
-    for (auto &vehicle : vehicleRepositoryPointer->getVehicles()) {
+    for (auto &vehicle : VehicleRepository::getVehicles()) {
         if (vehicle->getImage() == NULL) {
-            vehicleRepositoryPointer->removeVehicle(vehicle->getId());
+            VehicleRepository::removeVehicle(vehicle->getId());
             continue;
         }
         QPoint point;

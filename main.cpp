@@ -7,15 +7,14 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     RoadRepositoryPointer roadRepository = RoadRepositoryPointer(new RoadRepository());
-    VehicleRepositoryPointer vehicleRepository = VehicleRepositoryPointer(new VehicleRepository());
 
 
 
-    MainWindow w(roadRepository, vehicleRepository);
+    MainWindow w(roadRepository);
     w.show();
 
-    ThreadManager manager(vehicleRepository);
-    DriveThreadCreator thread(roadRepository, vehicleRepository, manager);
+    ThreadManager manager;
+    DriveThreadCreator thread(roadRepository, manager);
     thread.run();
     thread.setAutoDelete(true);
 

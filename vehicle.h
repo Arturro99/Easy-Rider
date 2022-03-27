@@ -12,7 +12,10 @@
 class Vehicle : public QObject
 {   
     Q_OBJECT
+private:
+    bool isTooClose(int* coordinatesA, int* coordinatesB, Direction direction);
 protected:
+    bool waiting = true;
     QImage *image;
     QUuid id;
     int basicVelocity;
@@ -36,6 +39,9 @@ public:
     virtual void drive() = 0;
 //    virtual ~Vehicle();
 
+    bool collisionDetected(Vehicle* vehicle);
+    void stop();
+
 
 
     void rotateVehicle(Direction targetDirection);
@@ -43,6 +49,10 @@ public:
     RoadPointer getCurrentRoad() const;
     void setCurrentRoad(RoadPointer newCurrentRoad);
     const QUuid &getId() const;
+
+    void setWaiting(bool newWaiting);
+
+    bool getWaiting() const;
 
 signals:
     void finished();

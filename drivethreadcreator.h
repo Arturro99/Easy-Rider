@@ -12,10 +12,9 @@
 class DriveThreadCreator : public QRunnable {
 private:
     RoadRepositoryPointer roadRepository;
-    VehicleRepositoryPointer vehicleRepository;
     ThreadManager manager;
 public:
-    explicit DriveThreadCreator(RoadRepositoryPointer rr, VehicleRepositoryPointer vr, ThreadManager tm) : roadRepository(rr), vehicleRepository(vr), manager(tm) {};
+    explicit DriveThreadCreator(RoadRepositoryPointer rr, ThreadManager tm) : roadRepository(rr), manager(tm) {};
     void run();
 };
 

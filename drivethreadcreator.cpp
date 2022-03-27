@@ -1,8 +1,10 @@
 #include "drivethreadcreator.h"
 
+#include <windows.h>
+
 void DriveThreadCreator::run()
 {
-    for (int i = 0; i < QThread::idealThreadCount() - 1; i++) {
+    for (int i = 0; i < QThread::idealThreadCount() - 2; i++) {
         QThread::sleep(1);
         Direction randomDirection = LEFT;
         while (randomDirection == LEFT) {
@@ -26,7 +28,7 @@ void DriveThreadCreator::run()
                         roadRepository->getSpawningVerticalDownRoads().at(randomRoad)->getStartCoordinates()[1]});
         }
         car->setCurrentRoad(roadRepository->findByCoordinates(car->getCurrentCoordinates(), car->getCurrentDirection()));
-        vehicleRepository->addVehicle(car);
+        VehicleRepository::addVehicle(car);
         DriveThread thread(car);
         manager.start(car);
     }

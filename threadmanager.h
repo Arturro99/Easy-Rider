@@ -10,13 +10,9 @@
 class ThreadManager : public QObject
 {
     Q_OBJECT
-private:
-    VehicleRepositoryPointer vehicleRepository;
 public:
-    ThreadManager(ThreadManager& tm) {
-        this->vehicleRepository = tm.vehicleRepository;
-    };
-    explicit ThreadManager(VehicleRepositoryPointer vehicleRepository, QObject *parent = nullptr);
+    ThreadManager(ThreadManager& tm) {};
+    explicit ThreadManager(QObject *parent = nullptr);
 
 signals:
     void work();

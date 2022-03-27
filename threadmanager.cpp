@@ -1,10 +1,10 @@
 #include "threadmanager.h"
 #include <QDebug>
+#include <QTimer>
 
-ThreadManager::ThreadManager(VehicleRepositoryPointer vehicleRepository, QObject *parent)
+ThreadManager::ThreadManager(QObject *parent)
     : QObject{parent}
 {
-    this->vehicleRepository = vehicleRepository;
     QThreadPool::globalInstance()->setMaxThreadCount(QThread::idealThreadCount());
 }
 
@@ -17,7 +17,6 @@ void ThreadManager::start(VehiclePointer vehicle)
         connect(thread, &DriveThread::started, this, &ThreadManager::started, Qt::QueuedConnection);
         connect(thread, &DriveThread::finished, this, &ThreadManager::finished, Qt::QueuedConnection);
         connect(this, &ThreadManager::work, thread, &DriveThread::work, Qt::QueuedConnection);
-//        connect(vehicle.get(), &Vehicle::finished, thread, &DriveThread::finish, Qt::QueuedConnection);
 
         QThreadPool::globalInstance()->start(thread);
     }
@@ -34,7 +33,5 @@ void ThreadManager::finished()
 {
     DriveThread* thread = qobject_cast<DriveThread*>(sender());
     if(!thread) return;
-
-    vehicleRepository->removeVehicle(thread->getVehicle()->getId());
     delete thread;
 }

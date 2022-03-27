@@ -10,7 +10,6 @@ RoadPointer RoadRepository::findByCoordinates(int* startCoordinates, Direction c
     QVector<RoadPointer> roads;
     switch (currentDirection) {
         case UP: {
-//            std::copy(verticalUpRoads.begin(), verticalUpRoads.end(), std::back_inserter(roads));
             for (int i = 0; i < verticalUpRoads.size(); i++) {
                 if (abs(verticalUpRoads.at(i)->getStartCoordinates()[0]-startCoordinates[0]) <= 100 && abs(verticalUpRoads.at(i)->getEndCoordinates()[1] - startCoordinates[1]) <= 100) {
                     return verticalUpRoads.at(i);
@@ -19,7 +18,6 @@ RoadPointer RoadRepository::findByCoordinates(int* startCoordinates, Direction c
             return *new RoadPointer(new Road(nullptr, nullptr));
         }
         case DOWN: {
-//            std::copy(verticalDownRoads.begin(), verticalDownRoads.end(), std::back_inserter(roads));
             for (int i = 0; i < verticalDownRoads.size(); i++) {
                 if (abs(verticalDownRoads.at(i)->getStartCoordinates()[0]-startCoordinates[0]) <= 100 && abs(verticalDownRoads.at(i)->getStartCoordinates()[1] - startCoordinates[1]) <= 100) {
                     return verticalDownRoads.at(i);
@@ -28,7 +26,6 @@ RoadPointer RoadRepository::findByCoordinates(int* startCoordinates, Direction c
             return *new RoadPointer(new Road(nullptr, nullptr));
         }
         case RIGHT: {
-//            std::copy(horizontalRightRoads.begin(), horizontalRightRoads.end(), std::back_inserter(roads));
             for (int i = 0; i < horizontalRightRoads.size(); i++) {
                 if (abs(horizontalRightRoads.at(i)->getStartCoordinates()[0]-startCoordinates[0]) <= 100 && abs(horizontalRightRoads.at(i)->getStartCoordinates()[1] - startCoordinates[1]) <= 100) {
                     return horizontalRightRoads.at(i);
@@ -37,7 +34,6 @@ RoadPointer RoadRepository::findByCoordinates(int* startCoordinates, Direction c
             return *new RoadPointer(new Road(nullptr, nullptr));
         }
         case LEFT: {
-//            std::copy(horizontalLeftRoads.begin(), horizontalLeftRoads.end(), std::back_inserter(roads));
             for (int i = 0; i < horizontalLeftRoads.size(); i++) {
                 if (abs(horizontalLeftRoads.at(i)->getEndCoordinates()[0]-startCoordinates[0]) <= 100 && abs(horizontalLeftRoads.at(i)->getStartCoordinates()[1] - startCoordinates[1]) <= 100) {
                     return horizontalLeftRoads.at(i);

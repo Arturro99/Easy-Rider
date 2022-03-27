@@ -1,8 +1,51 @@
 #include "vehicle.h"
 
+#include "vehiclerepository.h"
+
 Direction Vehicle::getInitialDirection() const
 {
     return initialDirection;
+}
+
+bool Vehicle::collisionDetected(Vehicle* vehicle)
+{
+    for (auto &veh : VehicleRepository::getVehicles()) {
+        if (veh->getId() != vehicle->getId() &&
+                veh->getCurrentDirection() == vehicle->getCurrentDirection() &&
+                isTooClose(vehicle->getCurrentCoordinates(), veh->getCurrentCoordinates(), vehicle->getCurrentDirection()))
+            return true;
+    }
+    return false;
+}
+
+void Vehicle::stop()
+{
+    int i = 0;
+    while(collisionDetected(this)) {
+//        qDebug() << "WAIT " << i++;
+    }
+    return;
+}
+
+bool Vehicle::isTooClose(int* currentVehicleCoordinates, int* anotherVehicleCoordinates, Direction direction) {
+    if ((direction == DOWN) &&
+            anotherVehicleCoordinates[1] - currentVehicleCoordinates[1] <= 200 &&
+            anotherVehicleCoordinates[1] - currentVehicleCoordinates[1] > 0) return true;
+    else if ((direction == UP) &&
+            currentVehicleCoordinates[1] - anotherVehicleCoordinates[1] <= 200 &&
+             currentVehicleCoordinates[1] - anotherVehicleCoordinates[1] > 0) return true;
+    else if ((direction == RIGHT) &&
+             anotherVehicleCoordinates[0] - currentVehicleCoordinates[0] <= 200 &&
+             anotherVehicleCoordinates[0] - currentVehicleCoordinates[0] > 0) return true;
+    else if ((direction == LEFT) &&
+             currentVehicleCoordinates[0] - anotherVehicleCoordinates[0] <= 200 &&
+             currentVehicleCoordinates[0] - anotherVehicleCoordinates[0] > 0) return true;
+    else return false;
+}
+
+bool Vehicle::getWaiting() const
+{
+    return waiting;
 }
 
 void Vehicle::rotateVehicle(Direction targetDirection)

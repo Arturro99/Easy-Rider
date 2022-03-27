@@ -22,7 +22,11 @@ void DriveThread::work()
 void DriveThread::run()
 {
     emit started();
-    this->vehicle->drive();
+    while (true) {
+        this->vehicle->drive();
+        this->vehicle->stop();
+        if (!vehicle->getWaiting()) break;
+    }
     this->vehicle->setImage(nullptr);
     emit finished();
 }

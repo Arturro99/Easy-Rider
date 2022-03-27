@@ -24,14 +24,12 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(RoadRepositoryPointer &roadRepository,
-               VehicleRepositoryPointer &vehicleRepository, QWidget *parent = nullptr);
+    MainWindow(RoadRepositoryPointer &roadRepository, QWidget *parent = nullptr);
     ~MainWindow();
 
 private:
     Ui::MainWindow *ui;
     RoadRepositoryPointer roadRepository;
-    VehicleRepositoryPointer vehicleRepositoryPointer;
     Traffic traffic;
     TrafficRules trafficRules;
     QSharedPointer<QPixmap> background;
