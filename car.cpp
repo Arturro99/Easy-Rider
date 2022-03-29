@@ -10,7 +10,7 @@ void Car::drive() {
         this->waiting = false;
         if (this->getCurrentDirection() == RIGHT) {
             setCurrentCoordinates(new int[] {getCurrentCoordinates()[0], currentRoad->getStartCoordinates()[1]});
-            qDebug() << "Driving right";
+//            qDebug() << "Driving right";
             while (this->getCurrentCoordinates()[0] < currentRoad->getEndCoordinates()[0]) {
                 while(collisionDetected(this)) {
                     this->waiting = true;
@@ -34,7 +34,7 @@ void Car::drive() {
         }
         if (this->getCurrentDirection() == DOWN) {
             setCurrentCoordinates(new int[] {currentRoad->getStartCoordinates()[0], getCurrentCoordinates()[1]});
-            qDebug() << "Driving down";
+//            qDebug() << "Driving down";
             while (this->getCurrentCoordinates()[1] < currentRoad->getEndCoordinates()[1]) {
                 while(collisionDetected(this)) {
                     this->waiting = true;
@@ -64,7 +64,7 @@ void Car::drive() {
         }
         if (this->getCurrentDirection() == UP) {
             setCurrentCoordinates(new int[] {currentRoad->getStartCoordinates()[0], getCurrentCoordinates()[1]});
-            qDebug() << "Driving up";
+//            qDebug() << "Driving up";
             while (this->getCurrentCoordinates()[1] > currentRoad->getStartCoordinates()[1]) {
                 while(collisionDetected(this)) {
                     this->waiting = true;
@@ -94,7 +94,7 @@ void Car::drive() {
         }
         if (this->getCurrentDirection() == LEFT) {
             setCurrentCoordinates(new int[] {getCurrentCoordinates()[0], currentRoad->getStartCoordinates()[1]});
-            qDebug() << "Driving left";
+//            qDebug() << "Driving left";
             while (this->getCurrentCoordinates()[0] > currentRoad->getStartCoordinates()[0]) {
                 while(collisionDetected(this)) {
                     this->waiting = true;

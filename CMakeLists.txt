@@ -34,6 +34,7 @@ set(PROJECT_SOURCES
         threadmanager.h threadmanager.cpp
         randgenerator.h randgenerator.cpp
         drivethreadcreator.h drivethreadcreator.cpp
+        drivethreadcreatorservice.h drivethreadcreatorservice.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

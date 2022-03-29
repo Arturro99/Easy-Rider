@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "drivethreadcreator.h"
+#include "drivethreadcreatorservice.h"
 
 #include <QApplication>
 
@@ -9,14 +9,16 @@ int main(int argc, char *argv[])
     RoadRepositoryPointer roadRepository = RoadRepositoryPointer(new RoadRepository());
 
 
+    ThreadManager manager;
+//    DriveThreadCreator threadCreator(roadRepository, manager);
+    DriveThreadCreator *threadCreator = new DriveThreadCreator();
+    threadCreator->setManager(manager);
+    threadCreator->setRoadRepository(roadRepository);
 
-    MainWindow w(roadRepository);
+    MainWindow w(roadRepository, threadCreator);
     w.show();
 
-    ThreadManager manager;
-    DriveThreadCreator thread(roadRepository, manager);
-    thread.run();
-    thread.setAutoDelete(true);
-
+    DriveThreadCreatorService service(threadCreator);
+    service.run();
     return a.exec();
 }

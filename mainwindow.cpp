@@ -8,12 +8,13 @@
 #include <QtGlobal>
 #include <QTime>
 
-MainWindow::MainWindow(RoadRepositoryPointer &roadRepository, QWidget *parent)
+MainWindow::MainWindow(RoadRepositoryPointer &roadRepository, DriveThreadCreator *threadCreator, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
 
     this->roadRepository = roadRepository;
+    this->threadCreator = threadCreator;
     ui->setupUi(this);
     assignStreets();
 
@@ -96,7 +97,18 @@ void MainWindow::assignStreets()
 
 void MainWindow::on_horizontalSlider_valueChanged(int value)
 {
-    this->traffic.setTrafficIntensity(value);
+    double cpuConverter = 10.0 / QThread::idealThreadCount() * 1.0;
+    value = value / 10 + 1;     // [1;2...;10]
+
+    int currentThreadsNumber = threadCreator->getThreadsNumber();
+    int targetThreadsNumber = value / cpuConverter;
+
+    while (currentThreadsNumber != targetThreadsNumber) {
+        targetThreadsNumber > currentThreadsNumber ? threadCreator->addThread() : threadCreator->removeThread();
+        currentThreadsNumber = threadCreator->getThreadsNumber();
+    }
+
+//    threadCreator.run();
 }
 
 void MainWindow::paintEvent(QPaintEvent *event) {

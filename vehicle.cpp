@@ -20,9 +20,8 @@ bool Vehicle::collisionDetected(Vehicle* vehicle)
 
 void Vehicle::stop()
 {
-    int i = 0;
     while(collisionDetected(this)) {
-//        qDebug() << "WAIT " << i++;
+
     }
     return;
 }
@@ -30,16 +29,20 @@ void Vehicle::stop()
 bool Vehicle::isTooClose(int* currentVehicleCoordinates, int* anotherVehicleCoordinates, Direction direction) {
     if ((direction == DOWN) &&
             anotherVehicleCoordinates[1] - currentVehicleCoordinates[1] <= 200 &&
-            anotherVehicleCoordinates[1] - currentVehicleCoordinates[1] > 0) return true;
+            anotherVehicleCoordinates[1] - currentVehicleCoordinates[1] > 0 &&
+            abs(anotherVehicleCoordinates[0] - currentVehicleCoordinates[0]) <= 30) return true;
     else if ((direction == UP) &&
             currentVehicleCoordinates[1] - anotherVehicleCoordinates[1] <= 200 &&
-             currentVehicleCoordinates[1] - anotherVehicleCoordinates[1] > 0) return true;
+             currentVehicleCoordinates[1] - anotherVehicleCoordinates[1] > 0 &&
+             abs(anotherVehicleCoordinates[0] - currentVehicleCoordinates[0]) <= 30) return true;
     else if ((direction == RIGHT) &&
              anotherVehicleCoordinates[0] - currentVehicleCoordinates[0] <= 200 &&
-             anotherVehicleCoordinates[0] - currentVehicleCoordinates[0] > 0) return true;
+             anotherVehicleCoordinates[0] - currentVehicleCoordinates[0] > 0 &&
+             abs(anotherVehicleCoordinates[1] - currentVehicleCoordinates[1]) <= 30) return true;
     else if ((direction == LEFT) &&
              currentVehicleCoordinates[0] - anotherVehicleCoordinates[0] <= 200 &&
-             currentVehicleCoordinates[0] - anotherVehicleCoordinates[0] > 0) return true;
+             currentVehicleCoordinates[0] - anotherVehicleCoordinates[0] > 0 &&
+             abs(anotherVehicleCoordinates[1] - currentVehicleCoordinates[1]) <= 30) return true;
     else return false;
 }
 
@@ -96,7 +99,7 @@ Direction Vehicle::randomDirection(Direction currentDirection)
     while(targetDirection == excludedDirection) {
         targetDirection = static_cast<Direction>(RandGenerator::generate(0, 3));
     }
-    qInfo() << "Turning " << targetDirection;
+//    qInfo() << "Turning " << targetDirection;
     return targetDirection;
 }
 
