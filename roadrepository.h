@@ -11,7 +11,8 @@ private:
     QVector<RoadPointer> horizontalRoads;
     QVector<RoadPointer> verticalRoads;
 
-    QVector<RoadPointer> spawningVerticalRoads;
+    QVector<RoadPointer> spawningVerticalUpRoads;
+    QVector<RoadPointer> spawningVerticalDownRoads;
     QVector<RoadPointer> spawningHorizontalRoads;
     QVector<RoadPointer> endingVerticalRoads;
     QVector<RoadPointer> endingHorizontalRoads;
@@ -23,8 +24,8 @@ private:
 public:
     RoadRepository();
 
-    RoadPointer findRoadByStartCoordinates(int* startCoordinates);
-    void addRoad(RoadPointer road);
+    RoadPointer findByCoordinates(int* startCoordinates, Direction currentDirection);
+    void addRoads(QVector<RoadPointer> road);
 
     const QVector<RoadPointer> &getVerticalRoads() const;
     const RoadPointer &getVerticalRoad(int i) const;
@@ -33,11 +34,13 @@ public:
     void addVerticalRoad(RoadPointer road);
     void addHorizontalRoad(RoadPointer road);
 
-    const QVector<RoadPointer> &getSpawningVerticalRoads() const;
+    const QVector<RoadPointer> &getSpawningVerticalUpRoads() const;
+    const QVector<RoadPointer> &getSpawningVerticalDownRoads() const;
     const QVector<RoadPointer> &getSpawningHorizontalRoads() const;
     const QVector<RoadPointer> &getEndingVerticalRoads() const;
     const QVector<RoadPointer> &getEndingHorizontalRoads() const;
-    void addSpawningVerticalRoad(RoadPointer road);
+    void addSpawningVerticalUpRoad(RoadPointer road);
+    void addSpawningVerticalDownRoad(RoadPointer road);
     void addSpawningHorizontalRoad(RoadPointer road);
     void addEndingVerticalRoad(RoadPointer road);
     void addEndingHorizontalRoad(RoadPointer road);
@@ -51,5 +54,7 @@ public:
     void addHorizontalLeftRoad(RoadPointer horizontalLeftRoad);
     void addHorizontalRightRoad(RoadPointer horizontalRightRoad);
 };
+
+typedef QSharedPointer<RoadRepository> RoadRepositoryPointer;
 
 #endif // ROADREPOSITORY_H

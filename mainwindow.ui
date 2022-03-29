@@ -47,6 +47,9 @@
     </property>
    </widget>
    <widget class="Line" name="road1horRight">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>-30</x>
@@ -54,6 +57,9 @@
       <width>681</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -66,6 +72,9 @@
     </property>
    </widget>
    <widget class="Line" name="road0horLeft">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -73,6 +82,12 @@
       <width>641</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -82,6 +97,9 @@
     </property>
    </widget>
    <widget class="Line" name="road2horLeft">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -89,6 +107,12 @@
       <width>641</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -98,6 +122,9 @@
     </property>
    </widget>
    <widget class="Line" name="road3horRight">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>-30</x>
@@ -105,6 +132,12 @@
       <width>681</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -114,6 +147,9 @@
     </property>
    </widget>
    <widget class="Line" name="road5horRight">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>-30</x>
@@ -121,6 +157,12 @@
       <width>681</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -130,6 +172,9 @@
     </property>
    </widget>
    <widget class="Line" name="road4horLeft">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -137,6 +182,12 @@
       <width>631</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -146,13 +197,22 @@
     </property>
    </widget>
    <widget class="Line" name="road0verDown">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>670</x>
       <y>130</y>
       <width>20</width>
-      <height>131</height>
+      <height>151</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -162,13 +222,22 @@
     </property>
    </widget>
    <widget class="Line" name="road7horLeft">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>720</x>
+      <x>1030</x>
       <y>270</y>
-      <width>571</width>
-      <height>16</height>
+      <width>271</width>
+      <height>20</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -178,13 +247,22 @@
     </property>
    </widget>
    <widget class="Line" name="road8horRight">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>720</x>
+      <x>1030</x>
       <y>310</y>
-      <width>571</width>
-      <height>16</height>
+      <width>271</width>
+      <height>20</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -194,13 +272,22 @@
     </property>
    </widget>
    <widget class="Line" name="road9horRight">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>720</x>
-      <y>480</y>
+      <y>490</y>
       <width>571</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -210,13 +297,22 @@
     </property>
    </widget>
    <widget class="Line" name="road10horLeft">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>760</y>
+      <x>710</x>
+      <y>780</y>
       <width>571</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -226,13 +322,22 @@
     </property>
    </widget>
    <widget class="Line" name="road14horRight">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1390</x>
       <y>680</y>
-      <width>191</width>
+      <width>231</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -242,6 +347,9 @@
     </property>
    </widget>
    <widget class="Line" name="road13horLeft">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1390</x>
@@ -249,6 +357,12 @@
       <width>191</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -258,13 +372,22 @@
     </property>
    </widget>
    <widget class="Line" name="road11horLeft">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>1390</x>
-      <y>270</y>
-      <width>191</width>
+      <x>1380</x>
+      <y>280</y>
+      <width>201</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -274,13 +397,22 @@
     </property>
    </widget>
    <widget class="Line" name="road12horRight">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>1390</x>
-      <y>310</y>
-      <width>191</width>
+      <x>1380</x>
+      <y>320</y>
+      <width>201</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -290,6 +422,9 @@
     </property>
    </widget>
    <widget class="Line" name="road6horLeft">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>720</x>
@@ -297,6 +432,12 @@
       <width>251</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -306,6 +447,9 @@
     </property>
    </widget>
    <widget class="Line" name="road6verUp">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>990</x>
@@ -313,6 +457,12 @@
       <width>20</width>
       <height>131</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -322,13 +472,22 @@
     </property>
    </widget>
    <widget class="Line" name="road5verUp">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>690</x>
-      <y>830</y>
+      <y>810</y>
       <width>20</width>
-      <height>81</height>
+      <height>101</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -338,13 +497,22 @@
     </property>
    </widget>
    <widget class="Line" name="road2verUp">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>690</x>
-      <y>360</y>
+      <y>340</y>
       <width>20</width>
-      <height>101</height>
+      <height>121</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -354,13 +522,22 @@
     </property>
    </widget>
    <widget class="Line" name="road1verDown">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>650</x>
       <y>360</y>
       <width>20</width>
-      <height>101</height>
+      <height>121</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -370,6 +547,9 @@
     </property>
    </widget>
    <widget class="Line" name="road4verUp">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>690</x>
@@ -377,6 +557,12 @@
       <width>20</width>
       <height>191</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -386,13 +572,22 @@
     </property>
    </widget>
    <widget class="Line" name="road3verDown">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>650</x>
       <y>540</y>
       <width>20</width>
-      <height>371</height>
+      <height>221</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -402,6 +597,9 @@
     </property>
    </widget>
    <widget class="Line" name="road12verUp">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1360</x>
@@ -409,6 +607,12 @@
       <width>20</width>
       <height>191</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -418,13 +622,22 @@
     </property>
    </widget>
    <widget class="Line" name="road11verDown">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1310</x>
       <y>540</y>
       <width>20</width>
-      <height>201</height>
+      <height>121</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -434,13 +647,22 @@
     </property>
    </widget>
    <widget class="Line" name="road13verDown">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1310</x>
-      <y>830</y>
+      <y>820</y>
       <width>20</width>
-      <height>81</height>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -450,13 +672,22 @@
     </property>
    </widget>
    <widget class="Line" name="road15verUp">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1630</x>
-      <y>360</y>
+      <y>300</y>
       <width>20</width>
-      <height>281</height>
+      <height>341</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -466,13 +697,22 @@
     </property>
    </widget>
    <widget class="Line" name="road14verDown">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1590</x>
-      <y>360</y>
+      <y>340</y>
       <width>20</width>
-      <height>281</height>
+      <height>301</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -482,13 +722,22 @@
     </property>
    </widget>
    <widget class="Line" name="road10verUp">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1360</x>
-      <y>350</y>
+      <y>340</y>
       <width>20</width>
-      <height>291</height>
+      <height>301</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -498,6 +747,9 @@
     </property>
    </widget>
    <widget class="Line" name="road9verDown">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1310</x>
@@ -505,6 +757,12 @@
       <width>20</width>
       <height>111</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -514,6 +772,9 @@
     </property>
    </widget>
    <widget class="Line" name="road8verUp">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1360</x>
@@ -521,6 +782,12 @@
       <width>20</width>
       <height>271</height>
      </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">b</string>
@@ -530,6 +797,9 @@
     </property>
    </widget>
    <widget class="Line" name="road7verDown">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>1310</x>
@@ -538,11 +808,117 @@
       <height>271</height>
      </rect>
     </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
      <string notr="true">b</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road3_2verDown">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>810</y>
+      <width>20</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road11_2verDown">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1310</x>
+      <y>700</y>
+      <width>20</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road7_2horLeft">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>270</y>
+      <width>271</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="road8_2horRight">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>310</y>
+      <width>281</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">b</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
     </property>
    </widget>
    <zorder>map</zorder>
@@ -578,6 +954,10 @@
    <zorder>road9verDown</zorder>
    <zorder>road8verUp</zorder>
    <zorder>road7verDown</zorder>
+   <zorder>road3_2verDown</zorder>
+   <zorder>road11_2verDown</zorder>
+   <zorder>road7_2horLeft</zorder>
+   <zorder>road8_2horRight</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">

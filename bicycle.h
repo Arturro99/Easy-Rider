@@ -8,7 +8,7 @@
 class Bicycle : Vehicle
 {
 public:
-    explicit Bicycle(Direction initialDirection);
+    explicit Bicycle(Direction initialDirection, RoadRepositoryPointer roadRepository);
     virtual void drive(Direction direction) {
 
     }

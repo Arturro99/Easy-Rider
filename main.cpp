@@ -1,14 +1,22 @@
 #include "mainwindow.h"
+#include "drivethreadcreator.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    VehiclePointer car = VehiclePointer(new Car(RIGHT));
-    MainWindow w(car);
+    RoadRepositoryPointer roadRepository = RoadRepositoryPointer(new RoadRepository());
+
+
+
+    MainWindow w(roadRepository);
     w.show();
-    DriveThread thread(car);
+
+    ThreadManager manager;
+    DriveThreadCreator thread(roadRepository, manager);
     thread.run();
+    thread.setAutoDelete(true);
+
     return a.exec();
 }

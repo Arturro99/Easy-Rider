@@ -3,26 +3,28 @@
 
 #include <QImage>
 #include <QSharedPointer>
+#include <sstream>
+#include <QUuid>
+#include <QDebug>
+#include "roadrepository.h"
+#include "randgenerator.h"
 
-#include "road.h"
-
-typedef enum  {
-    UP,
-    LEFT,
-    DOWN,
-    RIGHT
-} Direction;
-
-class Vehicle
+class Vehicle : public QObject
 {   
+    Q_OBJECT
+private:
+    bool isTooClose(int* coordinatesA, int* coordinatesB, Direction direction);
 protected:
+    bool waiting = true;
     QImage *image;
+    QUuid id;
     int basicVelocity;
     int *currentCoordinates;
-    RoadPointer currentRoad;
+    RoadPointer currentRoad = *new RoadPointer(new Road);
+    RoadRepositoryPointer roadRepository;
     Direction currentDirection;
     const Direction initialDirection;
-    explicit Vehicle(Direction initialDirection) : initialDirection(initialDirection) {};
+    explicit Vehicle(Direction initialDirection, RoadRepositoryPointer roadRepository) : initialDirection(initialDirection), roadRepository(roadRepository) {};
 
 public:
     QImage *getImage() const;
@@ -35,11 +37,25 @@ public:
     void setCurrentDirection(Direction newCurrentDirection);
     Direction getInitialDirection() const;
     virtual void drive() = 0;
+//    virtual ~Vehicle();
+
+    bool collisionDetected(Vehicle* vehicle);
+    void stop();
+
 
 
     void rotateVehicle(Direction targetDirection);
+    Direction randomDirection(Direction currentDirection);
     RoadPointer getCurrentRoad() const;
     void setCurrentRoad(RoadPointer newCurrentRoad);
+    const QUuid &getId() const;
+
+    void setWaiting(bool newWaiting);
+
+    bool getWaiting() const;
+
+signals:
+    void finished();
 };
 
 typedef QSharedPointer<Vehicle> VehiclePointer;

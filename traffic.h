@@ -5,7 +5,6 @@
 #include "vehicle.h"
 
 #include <QSharedPointer>
-#include <QSharedPointer>
 #include <QTime>
 class Traffic
 {
@@ -17,7 +16,6 @@ private:
 public:
     Traffic();
     void changeTraffficIntensity(int);
-    void generateTraffic(VehiclePointer car);
 
 
     int getTrafficIntensity() const;

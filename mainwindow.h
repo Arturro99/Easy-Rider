@@ -7,10 +7,13 @@
 #include "drivethread.h"
 #include "car.h"
 #include "roadrepository.h"
+#include "vehiclerepository.h"
+#include "threadmanager.h"
 
 #include <QMainWindow>
 #include <QSharedPointer>
 #include <QVector>
+#include <QPoint>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,16 +24,17 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(VehiclePointer vehicle, QWidget *parent = nullptr);
+    MainWindow(RoadRepositoryPointer &roadRepository, QWidget *parent = nullptr);
     ~MainWindow();
 
 private:
     Ui::MainWindow *ui;
-    VehiclePointer car;
-    RoadRepository roadRepository;
+    RoadRepositoryPointer roadRepository;
     Traffic traffic;
     TrafficRules trafficRules;
     QSharedPointer<QPixmap> background;
+    QVector<QPoint> qPoints;
+    QVector<QImage> qImages;
     void assignStreets();
     void paintEvent(QPaintEvent *event);
     void paintCars(QPaintEvent *event);

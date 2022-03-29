@@ -1,6 +1,6 @@
 #include "bicycle.h"
 
-Bicycle::Bicycle(Direction x) : Vehicle(x)
+Bicycle::Bicycle(Direction direction, RoadRepositoryPointer roadRepository) : Vehicle(direction, roadRepository)
 {
 
 }

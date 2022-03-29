@@ -9,8 +9,9 @@ class Car : public Vehicle
 {
 
 public:
-    Car(Direction initialDirection) : Vehicle(initialDirection)
+    Car(Direction initialDirection, RoadRepositoryPointer roadRepository) : Vehicle(initialDirection, roadRepository)
     {
+        this->id = QUuid::createUuid();
         QImage *image = new QImage(":/img/img/car.png");
         QTransform transform;
         switch (initialDirection) {

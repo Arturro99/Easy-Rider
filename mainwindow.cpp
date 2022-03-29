@@ -3,27 +3,21 @@
 
 #include <iostream>
 #include <QPainter>
-#include <QPoint>
 #include <QFrame>
 #include <QRegularExpression>
 #include <QtGlobal>
 #include <QTime>
 
-MainWindow::MainWindow(VehiclePointer vehicle, QWidget *parent)
+MainWindow::MainWindow(RoadRepositoryPointer &roadRepository, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
+    this->roadRepository = roadRepository;
     ui->setupUi(this);
     assignStreets();
 
-    car = vehicle;
-    srand( unsigned(time(0)));
-    int randomHorizontalRoad = rand() % roadRepository.getSpawningHorizontalRoads().length();
-    car->setCurrentCoordinates(new int[] {roadRepository.getSpawningHorizontalRoads().at(randomHorizontalRoad)->getStartCoordinates()[0],
-                roadRepository.getSpawningHorizontalRoads().at(randomHorizontalRoad)->getStartCoordinates()[1]});
-
     ui->horizontalSlider->setValue(50);
-    traffic.generateTraffic(car);
 }
 
 MainWindow::~MainWindow()
@@ -54,22 +48,23 @@ void MainWindow::assignStreets()
         QFrame *line = verticalLines.at(i);
         int *startCoordinates = new int[]{line->x(), line->y()};
         int *endCoordinates = new int[]{line->x(), line->y() + line->height()};
-        roadRepository.addVerticalRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
+        roadRepository->addVerticalRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
 
         if (verticalUpLines.contains(line)) {
-            roadRepository.addVerticalUpRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
+            roadRepository->addVerticalUpRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
         } else if (verticalDownLines.contains(line)) {
-            roadRepository.addVerticalDownRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
+            roadRepository->addVerticalDownRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
         }
 
 
-        if ((startCoordinates[1] <= 0 && (verticalDownLines.contains(line))) ||
-                (endCoordinates[1] >= 900 && verticalUpLines.contains(line))) {
-            roadRepository.addSpawningVerticalRoad(roadRepository.getVerticalRoad(i));
+        if (startCoordinates[1] <= 0 && verticalDownLines.contains(line)) {
+            roadRepository->addSpawningVerticalDownRoad(roadRepository->getVerticalRoad(i));
+        } else if (endCoordinates[1] >= 900 && verticalUpLines.contains(line)) {
+            roadRepository->addSpawningVerticalUpRoad(roadRepository->getVerticalRoad(i));
         }
         if ((startCoordinates[1] <= 0 && (verticalUpLines.contains(line))) ||
                 (endCoordinates[1] >= 900 && verticalDownLines.contains(line))) {
-            roadRepository.addEndingVerticalRoad(roadRepository.getVerticalRoad(i));
+            roadRepository->addEndingVerticalRoad(roadRepository->getVerticalRoad(i));
         }
     }
     //Initiate horizontal roads both right- and left-sided
@@ -78,22 +73,24 @@ void MainWindow::assignStreets()
         QFrame *line = horizontalLines.at(i);
         int *startCoordinates = new int[]{line->x(), line->y()};
         int *endCoordinates = new int[]{line->x() + line->width(), line->y()};
-        roadRepository.addHorizontalRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
+        roadRepository->addHorizontalRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
 
         if (horizontalRightLines.contains(line)) {
-            roadRepository.addHorizontalRightRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
+            roadRepository->addHorizontalRightRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
         } else if (horizontalLeftLines.contains(line)) {
-            roadRepository.addHorizontalLeftRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
+            roadRepository->addHorizontalLeftRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
         }
 
 
         if ((startCoordinates[0] <= 0 && (horizontalRightLines.contains(line)))){
-            roadRepository.addSpawningHorizontalRoad(roadRepository.getHorizontalRoad(i));
+            roadRepository->addSpawningHorizontalRoad(roadRepository->getHorizontalRoad(i));
         }
         if ((startCoordinates[0] <= 0 && (horizontalLeftLines.contains(line)))){
-            roadRepository.addEndingHorizontalRoad(roadRepository.getHorizontalRoad(i));
+            roadRepository->addEndingHorizontalRoad(roadRepository->getHorizontalRoad(i));
         }
     }
+    roadRepository->addRoads(roadRepository->getHorizontalRoads());
+    roadRepository->addRoads(roadRepository->getVerticalRoads());
 }
 
 
@@ -106,11 +103,18 @@ void MainWindow::paintEvent(QPaintEvent *event) {
     background = QSharedPointer<QPixmap>(new QPixmap(":/img/img/background.png"));
     QPainter painter(background.get());
 
-    QPoint point;
-    point.setX(car->getCurrentCoordinates()[0]);
-    point.setY(car->getCurrentCoordinates()[1]);
+    for (auto &vehicle : VehicleRepository::getVehicles()) {
+        if (vehicle->getImage() == NULL) {
+            VehicleRepository::removeVehicle(vehicle->getId());
+            continue;
+        }
+        QPoint point;
+        QImage image = *vehicle->getImage();
+        point.setX(vehicle->getCurrentCoordinates()[0]);
+        point.setY(vehicle->getCurrentCoordinates()[1]);
+        this->qPoints.append(point);
+        painter.drawImage(point, image);
+    }
 
-    QImage copy = *car->getImage();
-    painter.drawImage(point, copy);
     ui->map->setPixmap(*background);
 }
