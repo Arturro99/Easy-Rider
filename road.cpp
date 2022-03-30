@@ -20,13 +20,29 @@ void Road::setEndCoordinates(int *newEndCoordinates)
     endCoordinates = newEndCoordinates;
 }
 
+const QVector<SignPointer> &Road::getSigns() const
+{
+    return signs;
+}
+
+void Road::addSign(SignPointer sign)
+{
+    signs.append(sign);
+}
+
+const std::string &Road::getName() const
+{
+    return name;
+}
+
 Road::Road()
 {
 
 }
 
-Road::Road(int *startCoordinates, int *endCoordinates)
+Road::Road(int *startCoordinates, int *endCoordinates, std::string name)
 {
     this->startCoordinates = startCoordinates;
     this->endCoordinates = endCoordinates;
+    this->name = name;
 }

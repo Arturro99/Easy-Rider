@@ -37,13 +37,13 @@
     <property name="geometry">
      <rect>
       <x>-10</x>
-      <y>0</y>
+      <y>10</y>
       <width>1671</width>
       <height>921</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/img/img/background.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/img/img/background2.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="Line" name="road1horRight">
@@ -921,6 +921,123 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
+   <widget class="Line" name="signGIVE1Right">
+    <property name="geometry">
+     <rect>
+      <x>517</x>
+      <y>160</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="signGIVE7_2Left">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>230</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="signGIVE3Right">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>380</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="signGIVE5Right">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>570</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="signGIVE10Left">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>680</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="signGIVE11Left">
+    <property name="geometry">
+     <rect>
+      <x>1390</x>
+      <y>230</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="signGIVE8Right">
+    <property name="geometry">
+     <rect>
+      <x>1250</x>
+      <y>370</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="signGIVE13Left">
+    <property name="geometry">
+     <rect>
+      <x>1390</x>
+      <y>590</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="signGIVE9Right">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>560</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
    <zorder>map</zorder>
    <zorder>horizontalSlider</zorder>
    <zorder>road1horRight</zorder>
@@ -958,6 +1075,15 @@
    <zorder>road11_2verDown</zorder>
    <zorder>road7_2horLeft</zorder>
    <zorder>road8_2horRight</zorder>
+   <zorder>signGIVE1Right</zorder>
+   <zorder>signGIVE7_2Left</zorder>
+   <zorder>signGIVE3Right</zorder>
+   <zorder>signGIVE5Right</zorder>
+   <zorder>signGIVE10Left</zorder>
+   <zorder>signGIVE11Left</zorder>
+   <zorder>signGIVE8Right</zorder>
+   <zorder>signGIVE13Left</zorder>
+   <zorder>signGIVE9Right</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">

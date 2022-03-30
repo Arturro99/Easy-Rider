@@ -7,8 +7,7 @@ Direction Vehicle::getInitialDirection() const
     return initialDirection;
 }
 
-bool Vehicle::collisionDetected(Vehicle* vehicle)
-{
+bool Vehicle::collisionDetected(Vehicle* vehicle) {
     for (auto &veh : VehicleRepository::getVehicles()) {
         if (veh->getId() != vehicle->getId() &&
                 veh->getCurrentDirection() == vehicle->getCurrentDirection() &&
@@ -18,9 +17,29 @@ bool Vehicle::collisionDetected(Vehicle* vehicle)
     return false;
 }
 
+bool Vehicle::giveWaySignDetected(Vehicle* vehicle) {
+    if (vehicle->getCurrentRoad()->getSigns().size() != 0) {
+        RoadPointer roadToGiveWay;
+        for (auto &road : RoadRepository::getVerticalRoads()) {
+            if ((abs(vehicle->getCurrentCoordinates()[0] - road->getStartCoordinates()[0]) <= 150 &&
+                    abs(vehicle->getCurrentCoordinates()[1] - road->getStartCoordinates()[1]) <= 150) ||
+                    (abs(vehicle->getCurrentCoordinates()[0] - road->getEndCoordinates()[0]) <= 150 &&
+                    abs(vehicle->getCurrentCoordinates()[1] - road->getEndCoordinates()[1]) <= 150)) {
+                roadToGiveWay = road;
+                for(auto &v : VehicleRepository::getVehicles()) {
+                    if (road == v->getCurrentRoad()) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
+
 void Vehicle::stop()
 {
-    while(collisionDetected(this)) {
+    while(giveWaySignDetected(this)) {
 
     }
     return;

@@ -9,7 +9,7 @@ class Car : public Vehicle
 {
 
 public:
-    Car(Direction initialDirection, RoadRepositoryPointer roadRepository) : Vehicle(initialDirection, roadRepository)
+    Car(Direction initialDirection) : Vehicle(initialDirection)
     {
         this->id = QUuid::createUuid();
         QImage *image = new QImage(":/img/img/car.png");

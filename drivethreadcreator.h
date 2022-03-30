@@ -14,7 +14,6 @@ class DriveThreadCreator : public QObject {
     Q_OBJECT
 
 private:
-    RoadRepositoryPointer roadRepository;
     ThreadManager manager;
     int threadsNumber = QThread::idealThreadCount() / 2;
     bool running = true;
@@ -22,23 +21,19 @@ private:
 public:
     DriveThreadCreator() {};
     DriveThreadCreator(DriveThreadCreator& threadCreator) {
-            this->roadRepository = threadCreator.roadRepository;
             this->manager = threadCreator.manager;
             this->threadsNumber = threadCreator.threadsNumber;
     };
     DriveThreadCreator operator=(DriveThreadCreator& threadCreator) {
-        this->roadRepository = threadCreator.roadRepository;
         this->manager = threadCreator.manager;
         this->threadsNumber = threadCreator.threadsNumber;
         return *this;
     };
-    explicit DriveThreadCreator(RoadRepositoryPointer rr, ThreadManager tm) : roadRepository(rr), manager(tm) {};
+    explicit DriveThreadCreator(ThreadManager tm) : manager(tm) {};
     void addThread();
     void removeThread();
     int getThreadsNumber() const;
     void setRunning(bool newRunning);
-
-    void setRoadRepository(RoadRepositoryPointer newRoadRepository);
 
     void setManager(ThreadManager &newManager);
 
