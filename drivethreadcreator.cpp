@@ -17,7 +17,6 @@ void DriveThreadCreator::run()
     while(1) {
         for (int i = VehicleRepository::getVehicles().size(); i < threadsNumber; i++) {
             QVector<VehiclePointer> cars;
-//            for (int i = 0; i < 3; i++) {
                 Direction randomDirection = LEFT;
                 while (randomDirection == LEFT) {
                     randomDirection = static_cast<Direction>(RandGenerator::generate(0, 3));
@@ -42,8 +41,6 @@ void DriveThreadCreator::run()
                 car->setCurrentRoad(RoadRepository::findByCoordinates(car->getCurrentCoordinates(), car->getCurrentDirection()));
                 VehicleRepository::addVehicle(car);
                 cars.append(car);
-//            }
-//            DriveThread thread(cars);
             manager.start(car);
         }
     }

@@ -18,7 +18,7 @@ bool Vehicle::collisionDetected(Vehicle* vehicle) {
 }
 
 bool Vehicle::giveWaySignDetected(Vehicle* vehicle) {
-    if (vehicle->getCurrentRoad()->getSigns().size() != 0) {
+    if (RoadRepository::findByCoordinates(vehicle->getCurrentRoad()->getStartCoordinates(), vehicle->getCurrentDirection())->getSigns().size() != 0) {
         RoadPointer roadToGiveWay;
         for (auto &road : RoadRepository::getVerticalRoads()) {
             if ((abs(vehicle->getCurrentCoordinates()[0] - road->getStartCoordinates()[0]) <= 150 &&
@@ -118,7 +118,6 @@ Direction Vehicle::randomDirection(Direction currentDirection)
     while(targetDirection == excludedDirection) {
         targetDirection = static_cast<Direction>(RandGenerator::generate(0, 3));
     }
-//    qInfo() << "Turning " << targetDirection;
     return targetDirection;
 }
 

@@ -7,6 +7,8 @@
 
 class Car : public Vehicle
 {
+private:
+    int operateCar(Direction direction);
 
 public:
     Car(Direction initialDirection) : Vehicle(initialDirection)
