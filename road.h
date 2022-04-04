@@ -36,9 +36,12 @@ public:
             road1.getEndCoordinates()[0] == road2.getEndCoordinates()[0] &&
             road1.getEndCoordinates()[1] == road2.getEndCoordinates()[1]);
     }
+
     const QVector<SignPointer> &getSigns() const;
     void addSign(SignPointer sign);
     const std::string &getName() const;
+    void setSigns(const QVector<SignPointer> &newSigns);
+
 };
 
 typedef QSharedPointer<Road> RoadPointer;

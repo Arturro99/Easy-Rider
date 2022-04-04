@@ -7,7 +7,6 @@ RoadRepository::RoadRepository()
 }
 
 RoadPointer RoadRepository::findByCoordinates(int* startCoordinates, Direction currentDirection) {
-    QVector<RoadPointer> roads;
     switch (currentDirection) {
         case UP: {
             for (int i = 0; i < verticalUpRoads.size(); i++) {
@@ -72,7 +71,7 @@ RoadPointer RoadRepository::findByNumberAndDirection(std::string number, Directi
             return road;
         }
     }
-    return nullptr;
+    return *new RoadPointer(new Road());
 }
 
 std::string RoadRepository::extractNumber(Direction direction, std::string name) {
@@ -199,11 +198,12 @@ void RoadRepository::addHorizontalRightRoad(RoadPointer horizontalRightRoad)
     horizontalRightRoads.append(horizontalRightRoad);
 }
 
-void RoadRepository::assignSignToRoad(RoadPointer road, SignPointer sign)
+void RoadRepository::assignSignToRoad(RoadPointer road, SignPointer sign, Direction direction)
 {
-    for (auto r : allRoads) {
+    QVector<RoadPointer> roads = direction == LEFT ? horizontalLeftRoads : horizontalRightRoads;
+    for (auto &r : roads) {
         if (r->getName() == road->getName()) {
-            allRoads.at(allRoads.indexOf(r)).get()->addSign(sign);
+            r->addSign(sign);
             return;
         }
     }

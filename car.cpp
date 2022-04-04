@@ -60,7 +60,7 @@ int Car::operateCar(Direction direction) {
                 endingCoordinates[significantCoordinate] : this->getCurrentCoordinates()[significantCoordinate];
 
     while (firstCoordinateToCompare > secondCoordinateToCompare) {
-        while(collisionDetected(this) || giveWaySignDetected(this)) {
+        while(collisionDetected(this)) {
             this->waiting = true;
             return 0;
         }
@@ -81,6 +81,10 @@ int Car::operateCar(Direction direction) {
         while (QTime::currentTime() < dieTime)
             QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
         if (this->getCurrentCoordinates()[significantCoordinate] == endingCoordinates[significantCoordinate]) {
+            if (giveWaySignDetected(this)) {
+                this->waiting = true;
+                return 0;
+            }
             for (auto &road : roads) {
                 if (*this->getCurrentRoad().get() == *road.get()) {
                     emit finished();

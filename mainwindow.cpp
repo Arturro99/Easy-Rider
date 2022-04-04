@@ -125,8 +125,8 @@ void MainWindow::assignSigns() {
             directionAndNumber = std::make_pair("Left", number);
         }
         directionAndNumber.first == "Right" ?
-                    RoadRepository::assignSignToRoad(RoadRepository::findByNumberAndDirection(directionAndNumber.second, RIGHT), obj) :
-                    RoadRepository::assignSignToRoad(RoadRepository::findByNumberAndDirection(directionAndNumber.second, LEFT), obj);
+        RoadRepository::assignSignToRoad(RoadRepository::findByNumberAndDirection(directionAndNumber.second, RIGHT), obj, RIGHT) :
+        RoadRepository::assignSignToRoad(RoadRepository::findByNumberAndDirection(directionAndNumber.second, LEFT), obj, LEFT);
     }
 }
 

@@ -17,17 +17,18 @@ private:
     inline static QVector<RoadPointer> endingVerticalRoads;
     inline static QVector<RoadPointer> endingHorizontalRoads;
 
+
     inline static QVector<RoadPointer> verticalDownRoads;
     inline static QVector<RoadPointer> verticalUpRoads;
     inline static QVector<RoadPointer> horizontalLeftRoads;
     inline static QVector<RoadPointer> horizontalRightRoads;
 
-    static std::string extractNumber(Direction direction, std::string name);
 public:
     RoadRepository();
 
     static RoadPointer findByCoordinates(int* startCoordinates, Direction currentDirection);
     static RoadPointer findByNumberAndDirection(std::string number, Direction direction);
+    static std::string extractNumber(Direction direction, std::string name);
     static void addRoads(QVector<RoadPointer> road);
 
     static const QVector<RoadPointer> &getVerticalRoads();
@@ -57,7 +58,8 @@ public:
     static void addHorizontalLeftRoad(RoadPointer horizontalLeftRoad);
     static void addHorizontalRightRoad(RoadPointer horizontalRightRoad);
 
-    static void assignSignToRoad(RoadPointer road, SignPointer sign);
+    static void assignSignToRoad(RoadPointer road, SignPointer sign, Direction direction);
+
 };
 
 typedef QSharedPointer<RoadRepository> RoadRepositoryPointer;

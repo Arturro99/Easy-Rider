@@ -34,7 +34,10 @@ const std::string &Road::getName() const
 {
     return name;
 }
-
+void Road::setSigns(const QVector<SignPointer> &newSigns)
+{
+    signs = newSigns;
+}
 Road::Road()
 {
 

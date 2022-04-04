@@ -1,5 +1,7 @@
+#include <dos.h>
+#include <QTime>
+#include <QCoreApplication>
 #include "vehicle.h"
-
 #include "vehiclerepository.h"
 
 Direction Vehicle::getInitialDirection() const
@@ -18,28 +20,35 @@ bool Vehicle::collisionDetected(Vehicle* vehicle) {
 }
 
 bool Vehicle::giveWaySignDetected(Vehicle* vehicle) {
-    if (RoadRepository::findByCoordinates(vehicle->getCurrentRoad()->getStartCoordinates(), vehicle->getCurrentDirection())->getSigns().size() != 0) {
-        RoadPointer roadToGiveWay;
+    RoadPointer road = *new RoadPointer(new Road);
+    road = RoadRepository::findByNumberAndDirection(RoadRepository::extractNumber(vehicle->getCurrentDirection(), vehicle->getCurrentRoad()->getName()), vehicle->getCurrentDirection());
+    if (road->getSigns().size() != 0) {
+        QTime dieTime= QTime::currentTime().addMSecs(500);
+        while (QTime::currentTime() < dieTime)
+            QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
         for (auto &road : RoadRepository::getVerticalRoads()) {
             if ((abs(vehicle->getCurrentCoordinates()[0] - road->getStartCoordinates()[0]) <= 150 &&
                     abs(vehicle->getCurrentCoordinates()[1] - road->getStartCoordinates()[1]) <= 150) ||
                     (abs(vehicle->getCurrentCoordinates()[0] - road->getEndCoordinates()[0]) <= 150 &&
-                    abs(vehicle->getCurrentCoordinates()[1] - road->getEndCoordinates()[1]) <= 150)) {
-                roadToGiveWay = road;
+                    abs(vehicle->getCurrentCoordinates()[1] - road->getEndCoordinates()[1]) <= 150) &&
+                    road->getName() != vehicle->getCurrentRoad()->getName()) {
                 for(auto &v : VehicleRepository::getVehicles()) {
-                    if (road == v->getCurrentRoad()) {
+                    if (road->getName() == v->getCurrentRoad()->getName()) {
                         return true;
                     }
                 }
             }
         }
     }
+    vehicle->currentDirection == LEFT ?
+                vehicle->setCurrentCoordinates(new int[] {++getCurrentCoordinates()[0], getCurrentCoordinates()[1]}) :
+                vehicle->setCurrentCoordinates(new int[] {--getCurrentCoordinates()[0], getCurrentCoordinates()[1]});
     return false;
 }
 
 void Vehicle::stop()
 {
-    while(giveWaySignDetected(this)) {
+    while(giveWaySignDetected(this) || collisionDetected(this)) {
 
     }
     return;
