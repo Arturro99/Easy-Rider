@@ -32,6 +32,7 @@ set(PROJECT_SOURCES
         drivethreadcreator.h drivethreadcreator.cpp
         drivethreadcreatorservice.h drivethreadcreatorservice.cpp
         signrepository.h signrepository.cpp
+        repository.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

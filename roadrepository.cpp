@@ -1,11 +1,6 @@
 #include "roadrepository.h"
 #include <cstdlib>
 
-RoadRepository::RoadRepository()
-{
-
-}
-
 RoadPointer RoadRepository::findByCoordinates(int* startCoordinates, Direction currentDirection) {
     switch (currentDirection) {
         case UP: {
@@ -92,7 +87,7 @@ std::string RoadRepository::extractNumber(Direction direction, std::string name)
 }
 
 void RoadRepository::addRoads(QVector<RoadPointer> roads) {
-    std::copy(roads.begin(), roads.end(), std::back_inserter(allRoads));
+    std::copy(roads.begin(), roads.end(), std::back_inserter(objects));
 }
 
 const QVector<RoadPointer> &RoadRepository::getVerticalRoads()

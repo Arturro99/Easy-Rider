@@ -3,15 +3,17 @@
 
 #include "vehicle.h"
 
-class VehicleRepository
+/**
+ * @brief Klasa VehicleRepository reprezentująca repozytorium pojazdów
+ */
+class VehicleRepository : public Repository<VehiclePointer>
 {
-private:
-    inline static QVector<VehiclePointer> vehiclesOnRoads;
 public:
-
-    static void addVehicle(VehiclePointer vehicle);
+    /**
+     * @brief Metoda usuwająca pojazd z repozytorium
+     * @param id - Identyfikator pojazdu
+     */
     static void removeVehicle(QUuid id);
-    static const QVector<VehiclePointer> getVehicles();
 };
 
 #endif // VEHICLEREPOSITORY_H

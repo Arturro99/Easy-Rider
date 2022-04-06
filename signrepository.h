@@ -3,14 +3,12 @@
 
 #include "sign.h"
 
-class SignRepository
+/**
+ * @brief Klasa SignRepository reprezentująca repozytorium znaków
+ */
+class SignRepository : public Repository<SignPointer>
 {
-private:
-    inline static QVector<SignPointer> signs;
-public:
 
-    static const QVector<SignPointer> &getSigns();
-    static void addSign(SignPointer sign);
 };
 
 #endif // SIGNREPOSITORY_H

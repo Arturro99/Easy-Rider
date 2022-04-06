@@ -65,7 +65,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -90,7 +90,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -115,7 +115,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -140,7 +140,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -165,7 +165,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -190,7 +190,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -215,7 +215,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -240,7 +240,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -265,7 +265,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -290,7 +290,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -315,7 +315,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -340,7 +340,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -365,7 +365,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -390,7 +390,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -415,7 +415,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -440,7 +440,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -465,7 +465,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -490,7 +490,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -515,7 +515,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -540,7 +540,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -565,7 +565,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -590,7 +590,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -615,7 +615,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -640,7 +640,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -665,7 +665,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -690,7 +690,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -715,7 +715,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -740,7 +740,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -765,7 +765,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -790,7 +790,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -815,7 +815,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -840,7 +840,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -865,7 +865,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -890,7 +890,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -915,7 +915,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">b</string>
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -930,6 +930,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent</string>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -942,6 +945,9 @@
       <width>51</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -956,6 +962,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent</string>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -968,6 +977,9 @@
       <width>51</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -982,6 +994,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent</string>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -994,6 +1009,9 @@
       <width>51</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -1008,6 +1026,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent</string>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -1021,6 +1042,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent</string>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -1033,6 +1057,9 @@
       <width>51</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
