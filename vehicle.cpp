@@ -10,7 +10,7 @@ Direction Vehicle::getInitialDirection() const
 }
 
 bool Vehicle::collisionDetected(Vehicle* vehicle) {
-    for (auto &veh : VehicleRepository::getVehicles()) {
+    for (auto &veh : VehicleRepository::getAll()) {
         if (veh->getId() != vehicle->getId() &&
                 veh->getCurrentDirection() == vehicle->getCurrentDirection() &&
                 isTooClose(vehicle->getCurrentCoordinates(), veh->getCurrentCoordinates(), vehicle->getCurrentDirection()))
@@ -32,7 +32,7 @@ bool Vehicle::giveWaySignDetected(Vehicle* vehicle) {
                     (abs(vehicle->getCurrentCoordinates()[0] - road->getEndCoordinates()[0]) <= 150 &&
                     abs(vehicle->getCurrentCoordinates()[1] - road->getEndCoordinates()[1]) <= 150) &&
                     road->getName() != vehicle->getCurrentRoad()->getName()) {
-                for(auto &v : VehicleRepository::getVehicles()) {
+                for(auto &v : VehicleRepository::getAll()) {
                     if (road->getName() == v->getCurrentRoad()->getName()) {
                         return true;
                     }
@@ -40,9 +40,11 @@ bool Vehicle::giveWaySignDetected(Vehicle* vehicle) {
             }
         }
     }
-    vehicle->currentDirection == LEFT ?
-                vehicle->setCurrentCoordinates(new int[] {++getCurrentCoordinates()[0], getCurrentCoordinates()[1]}) :
-                vehicle->setCurrentCoordinates(new int[] {--getCurrentCoordinates()[0], getCurrentCoordinates()[1]});
+    if (vehicle->currentDirection == LEFT) {
+        vehicle->setCurrentCoordinates(new int[] {++getCurrentCoordinates()[0], getCurrentCoordinates()[1]});
+    } else if (vehicle->currentDirection == RIGHT) {
+        vehicle->setCurrentCoordinates(new int[] {--getCurrentCoordinates()[0], getCurrentCoordinates()[1]});
+    }
     return false;
 }
 
@@ -153,16 +155,6 @@ QImage *Vehicle::getImage() const
 void Vehicle::setImage(QImage *newImage)
 {
     image = newImage;
-}
-
-int Vehicle::getBasicVelocity() const
-{
-    return basicVelocity;
-}
-
-void Vehicle::setBasicVelocity(int newBasicVelocity)
-{
-    basicVelocity = newBasicVelocity;
 }
 
 int *Vehicle::getCurrentCoordinates() const

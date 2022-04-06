@@ -13,18 +13,9 @@ void ThreadManager::start(VehiclePointer vehicle)
     DriveThread *thread = new DriveThread(vehicle);
     thread->setAutoDelete(true);
 
-    connect(thread, &DriveThread::started, this, &ThreadManager::started, Qt::QueuedConnection);
     connect(thread, &DriveThread::finished, this, &ThreadManager::finished, Qt::QueuedConnection);
-    connect(this, &ThreadManager::work, thread, &DriveThread::work, Qt::QueuedConnection);
 
     QThreadPool::globalInstance()->start(thread);
-}
-
-void ThreadManager::started()
-{
-    DriveThread* thread = qobject_cast<DriveThread*>(sender());
-    if(!thread) return;
-
 }
 
 void ThreadManager::finished()

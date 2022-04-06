@@ -87,7 +87,6 @@ int Car::operateCar(Direction direction) {
             }
             for (auto &road : roads) {
                 if (*this->getCurrentRoad().get() == *road.get()) {
-                    emit finished();
                     return 0;
                 }
             }

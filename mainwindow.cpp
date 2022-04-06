@@ -109,7 +109,7 @@ void MainWindow::assignSigns() {
     std::string number;
     for (auto sign : giveWaySigns) {
         SignPointer obj(new Sign(GIVE_WAY));
-        SignRepository::addSign(obj);
+        SignRepository::addObject(obj);
         if (giveWayRightSigns.contains(sign)) {
             if (sign->objectName().size() == 14) number = sign->objectName().toStdString().substr(8, 1);
             else if (sign->objectName().size() == 15) number = sign->objectName().toStdString().substr(8, 2);
@@ -146,10 +146,10 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
 }
 
 void MainWindow::paintEvent(QPaintEvent *event) {
-    background = QSharedPointer<QPixmap>(new QPixmap(":/img/img/background2.png"));
+    background = QSharedPointer<QPixmap>(new QPixmap(":/img/img/background.png"));
     QPainter painter(background.get());
 
-    for (auto &vehicle : VehicleRepository::getVehicles()) {
+    for (auto &vehicle : VehicleRepository::getAll()) {
         if (vehicle->getImage() == NULL) {
             VehicleRepository::removeVehicle(vehicle->getId());
             continue;
@@ -158,7 +158,6 @@ void MainWindow::paintEvent(QPaintEvent *event) {
         QImage image = *vehicle->getImage();
         point.setX(vehicle->getCurrentCoordinates()[0]);
         point.setY(vehicle->getCurrentCoordinates()[1]);
-        this->qPoints.append(point);
         painter.drawImage(point, image);
     }
 

@@ -14,14 +14,8 @@ DriveThread::~DriveThread()
 
 }
 
-void DriveThread::work()
-{
-
-}
-
 void DriveThread::run()
 {
-    emit started();
     while (true) {
         this->vehicle->drive();
         this->vehicle->stop();
