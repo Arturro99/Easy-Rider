@@ -12,6 +12,9 @@ class ThreadManager : public QObject
     Q_OBJECT
 public:
     ThreadManager(ThreadManager& tm) {};
+    ThreadManager& operator=(ThreadManager&) {
+        return *this;
+    };
     explicit ThreadManager(QObject *parent = nullptr);
 
 signals:

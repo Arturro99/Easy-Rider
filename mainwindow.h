@@ -9,6 +9,8 @@
 #include "roadrepository.h"
 #include "vehiclerepository.h"
 #include "threadmanager.h"
+#include "drivethreadcreator.h"
+#include "signrepository.h"
 
 #include <QMainWindow>
 #include <QSharedPointer>
@@ -24,18 +26,17 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(RoadRepositoryPointer &roadRepository, QWidget *parent = nullptr);
+    MainWindow(DriveThreadCreator *threadCreator, QWidget *parent = nullptr);
     ~MainWindow();
 
 private:
     Ui::MainWindow *ui;
-    RoadRepositoryPointer roadRepository;
-    Traffic traffic;
-    TrafficRules trafficRules;
+    DriveThreadCreator *threadCreator;
     QSharedPointer<QPixmap> background;
     QVector<QPoint> qPoints;
     QVector<QImage> qImages;
     void assignStreets();
+    void assignSigns();
     void paintEvent(QPaintEvent *event);
     void paintCars(QPaintEvent *event);
     QPixmap *getBackground() const;

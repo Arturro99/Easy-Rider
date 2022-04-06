@@ -10,16 +10,14 @@ ThreadManager::ThreadManager(QObject *parent)
 
 void ThreadManager::start(VehiclePointer vehicle)
 {
-    for (int i = 0; i < 1; i++) {
-        DriveThread *thread = new DriveThread(vehicle);
-        thread->setAutoDelete(true);
+    DriveThread *thread = new DriveThread(vehicle);
+    thread->setAutoDelete(true);
 
-        connect(thread, &DriveThread::started, this, &ThreadManager::started, Qt::QueuedConnection);
-        connect(thread, &DriveThread::finished, this, &ThreadManager::finished, Qt::QueuedConnection);
-        connect(this, &ThreadManager::work, thread, &DriveThread::work, Qt::QueuedConnection);
+    connect(thread, &DriveThread::started, this, &ThreadManager::started, Qt::QueuedConnection);
+    connect(thread, &DriveThread::finished, this, &ThreadManager::finished, Qt::QueuedConnection);
+    connect(this, &ThreadManager::work, thread, &DriveThread::work, Qt::QueuedConnection);
 
-        QThreadPool::globalInstance()->start(thread);
-    }
+    QThreadPool::globalInstance()->start(thread);
 }
 
 void ThreadManager::started()

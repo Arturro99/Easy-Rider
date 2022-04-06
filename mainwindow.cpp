@@ -8,14 +8,15 @@
 #include <QtGlobal>
 #include <QTime>
 
-MainWindow::MainWindow(RoadRepositoryPointer &roadRepository, QWidget *parent)
+MainWindow::MainWindow(DriveThreadCreator *threadCreator, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
 
-    this->roadRepository = roadRepository;
+    this->threadCreator = threadCreator;
     ui->setupUi(this);
     assignStreets();
+    assignSigns();
 
     ui->horizontalSlider->setValue(50);
 }
@@ -48,23 +49,24 @@ void MainWindow::assignStreets()
         QFrame *line = verticalLines.at(i);
         int *startCoordinates = new int[]{line->x(), line->y()};
         int *endCoordinates = new int[]{line->x(), line->y() + line->height()};
-        roadRepository->addVerticalRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
+        std::string name = line->objectName().toStdString();
+        RoadRepository::addVerticalRoad(RoadPointer(new Road(startCoordinates, endCoordinates, name)));
 
         if (verticalUpLines.contains(line)) {
-            roadRepository->addVerticalUpRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
+            RoadRepository::addVerticalUpRoad(RoadPointer(new Road(startCoordinates, endCoordinates, name)));
         } else if (verticalDownLines.contains(line)) {
-            roadRepository->addVerticalDownRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
+            RoadRepository::addVerticalDownRoad(RoadPointer(new Road(startCoordinates, endCoordinates, name)));
         }
 
 
         if (startCoordinates[1] <= 0 && verticalDownLines.contains(line)) {
-            roadRepository->addSpawningVerticalDownRoad(roadRepository->getVerticalRoad(i));
+            RoadRepository::addSpawningVerticalDownRoad(RoadRepository::getVerticalRoad(i));
         } else if (endCoordinates[1] >= 900 && verticalUpLines.contains(line)) {
-            roadRepository->addSpawningVerticalUpRoad(roadRepository->getVerticalRoad(i));
+            RoadRepository::addSpawningVerticalUpRoad(RoadRepository::getVerticalRoad(i));
         }
         if ((startCoordinates[1] <= 0 && (verticalUpLines.contains(line))) ||
                 (endCoordinates[1] >= 900 && verticalDownLines.contains(line))) {
-            roadRepository->addEndingVerticalRoad(roadRepository->getVerticalRoad(i));
+            RoadRepository::addEndingVerticalRoad(RoadRepository::getVerticalRoad(i));
         }
     }
     //Initiate horizontal roads both right- and left-sided
@@ -73,34 +75,78 @@ void MainWindow::assignStreets()
         QFrame *line = horizontalLines.at(i);
         int *startCoordinates = new int[]{line->x(), line->y()};
         int *endCoordinates = new int[]{line->x() + line->width(), line->y()};
-        roadRepository->addHorizontalRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
+        std::string name = line->objectName().toStdString();
+        RoadRepository::addHorizontalRoad(RoadPointer(new Road(startCoordinates, endCoordinates, name)));
 
         if (horizontalRightLines.contains(line)) {
-            roadRepository->addHorizontalRightRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
+            RoadRepository::addHorizontalRightRoad(RoadPointer(new Road(startCoordinates, endCoordinates, name)));
         } else if (horizontalLeftLines.contains(line)) {
-            roadRepository->addHorizontalLeftRoad(RoadPointer(new Road(startCoordinates, endCoordinates)));
+            RoadRepository::addHorizontalLeftRoad(RoadPointer(new Road(startCoordinates, endCoordinates, name)));
         }
 
 
         if ((startCoordinates[0] <= 0 && (horizontalRightLines.contains(line)))){
-            roadRepository->addSpawningHorizontalRoad(roadRepository->getHorizontalRoad(i));
+            RoadRepository::addSpawningHorizontalRoad(RoadRepository::getHorizontalRoad(i));
         }
         if ((startCoordinates[0] <= 0 && (horizontalLeftLines.contains(line)))){
-            roadRepository->addEndingHorizontalRoad(roadRepository->getHorizontalRoad(i));
+            RoadRepository::addEndingHorizontalRoad(RoadRepository::getHorizontalRoad(i));
         }
     }
-    roadRepository->addRoads(roadRepository->getHorizontalRoads());
-    roadRepository->addRoads(roadRepository->getVerticalRoads());
+    RoadRepository::addRoads(RoadRepository::getHorizontalRoads());
+    RoadRepository::addRoads(RoadRepository::getVerticalRoads());
+}
+
+void MainWindow::assignSigns() {
+    QRegularExpression giveWaySignExpression("^.+GIVE.*$");
+    QRegularExpression giveWayRightSignExpression("^.+GIVE.*Right$");
+    QRegularExpression giveWayLeftSignExpression("^.+GIVE.*Left$");
+
+    QList<QFrame*> giveWaySigns = ui->centralwidget->findChildren<QFrame*>(giveWaySignExpression);
+    QList<QFrame*> giveWayRightSigns = ui->centralwidget->findChildren<QFrame*>(giveWayRightSignExpression);
+    QList<QFrame*> giveWayLeftSigns = ui->centralwidget->findChildren<QFrame*>(giveWayLeftSignExpression);
+
+    std::pair<std::string, std::string> directionAndNumber;
+    std::string number;
+    for (auto sign : giveWaySigns) {
+        SignPointer obj(new Sign(GIVE_WAY));
+        SignRepository::addSign(obj);
+        if (giveWayRightSigns.contains(sign)) {
+            if (sign->objectName().size() == 14) number = sign->objectName().toStdString().substr(8, 1);
+            else if (sign->objectName().size() == 15) number = sign->objectName().toStdString().substr(8, 2);
+            else if (sign->objectName().size() == 16) number = sign->objectName().toStdString().substr(8, 3);
+            else if (sign->objectName().size() == 17) number = sign->objectName().toStdString().substr(8, 4);
+            directionAndNumber = std::make_pair("Right", number);
+        }
+        else if (giveWayLeftSigns.contains(sign)) {
+            if (sign->objectName().size() == 13) number = sign->objectName().toStdString().substr(8, 1);
+            else if (sign->objectName().size() == 14) number = sign->objectName().toStdString().substr(8, 2);
+            else if (sign->objectName().size() == 15) number = sign->objectName().toStdString().substr(8, 3);
+            else if (sign->objectName().size() == 16) number = sign->objectName().toStdString().substr(8, 4);
+            directionAndNumber = std::make_pair("Left", number);
+        }
+        directionAndNumber.first == "Right" ?
+        RoadRepository::assignSignToRoad(RoadRepository::findByNumberAndDirection(directionAndNumber.second, RIGHT), obj, RIGHT) :
+        RoadRepository::assignSignToRoad(RoadRepository::findByNumberAndDirection(directionAndNumber.second, LEFT), obj, LEFT);
+    }
 }
 
 
 void MainWindow::on_horizontalSlider_valueChanged(int value)
 {
-    this->traffic.setTrafficIntensity(value);
+    double cpuConverter = 10.0 / QThread::idealThreadCount() * 1.0;
+    value = value / 10 + 1;     // [1;2...;10]
+
+    int currentThreadsNumber = threadCreator->getThreadsNumber();
+    int targetThreadsNumber = value / cpuConverter;
+
+    while (currentThreadsNumber != targetThreadsNumber) {
+        targetThreadsNumber > currentThreadsNumber ? threadCreator->addThread() : threadCreator->removeThread();
+        currentThreadsNumber = threadCreator->getThreadsNumber();
+    }
 }
 
 void MainWindow::paintEvent(QPaintEvent *event) {
-    background = QSharedPointer<QPixmap>(new QPixmap(":/img/img/background.png"));
+    background = QSharedPointer<QPixmap>(new QPixmap(":/img/img/background2.png"));
     QPainter painter(background.get());
 
     for (auto &vehicle : VehicleRepository::getVehicles()) {

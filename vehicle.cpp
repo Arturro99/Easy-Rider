@@ -1,5 +1,7 @@
+#include <dos.h>
+#include <QTime>
+#include <QCoreApplication>
 #include "vehicle.h"
-
 #include "vehiclerepository.h"
 
 Direction Vehicle::getInitialDirection() const
@@ -7,8 +9,7 @@ Direction Vehicle::getInitialDirection() const
     return initialDirection;
 }
 
-bool Vehicle::collisionDetected(Vehicle* vehicle)
-{
+bool Vehicle::collisionDetected(Vehicle* vehicle) {
     for (auto &veh : VehicleRepository::getVehicles()) {
         if (veh->getId() != vehicle->getId() &&
                 veh->getCurrentDirection() == vehicle->getCurrentDirection() &&
@@ -18,11 +19,37 @@ bool Vehicle::collisionDetected(Vehicle* vehicle)
     return false;
 }
 
+bool Vehicle::giveWaySignDetected(Vehicle* vehicle) {
+    RoadPointer road = *new RoadPointer(new Road);
+    road = RoadRepository::findByNumberAndDirection(RoadRepository::extractNumber(vehicle->getCurrentDirection(), vehicle->getCurrentRoad()->getName()), vehicle->getCurrentDirection());
+    if (road->getSigns().size() != 0) {
+        QTime dieTime= QTime::currentTime().addMSecs(500);
+        while (QTime::currentTime() < dieTime)
+            QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+        for (auto &road : RoadRepository::getVerticalRoads()) {
+            if ((abs(vehicle->getCurrentCoordinates()[0] - road->getStartCoordinates()[0]) <= 150 &&
+                    abs(vehicle->getCurrentCoordinates()[1] - road->getStartCoordinates()[1]) <= 150) ||
+                    (abs(vehicle->getCurrentCoordinates()[0] - road->getEndCoordinates()[0]) <= 150 &&
+                    abs(vehicle->getCurrentCoordinates()[1] - road->getEndCoordinates()[1]) <= 150) &&
+                    road->getName() != vehicle->getCurrentRoad()->getName()) {
+                for(auto &v : VehicleRepository::getVehicles()) {
+                    if (road->getName() == v->getCurrentRoad()->getName()) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    vehicle->currentDirection == LEFT ?
+                vehicle->setCurrentCoordinates(new int[] {++getCurrentCoordinates()[0], getCurrentCoordinates()[1]}) :
+                vehicle->setCurrentCoordinates(new int[] {--getCurrentCoordinates()[0], getCurrentCoordinates()[1]});
+    return false;
+}
+
 void Vehicle::stop()
 {
-    int i = 0;
-    while(collisionDetected(this)) {
-//        qDebug() << "WAIT " << i++;
+    while(giveWaySignDetected(this) || collisionDetected(this)) {
+
     }
     return;
 }
@@ -30,16 +57,20 @@ void Vehicle::stop()
 bool Vehicle::isTooClose(int* currentVehicleCoordinates, int* anotherVehicleCoordinates, Direction direction) {
     if ((direction == DOWN) &&
             anotherVehicleCoordinates[1] - currentVehicleCoordinates[1] <= 200 &&
-            anotherVehicleCoordinates[1] - currentVehicleCoordinates[1] > 0) return true;
+            anotherVehicleCoordinates[1] - currentVehicleCoordinates[1] > 0 &&
+            abs(anotherVehicleCoordinates[0] - currentVehicleCoordinates[0]) <= 30) return true;
     else if ((direction == UP) &&
             currentVehicleCoordinates[1] - anotherVehicleCoordinates[1] <= 200 &&
-             currentVehicleCoordinates[1] - anotherVehicleCoordinates[1] > 0) return true;
+             currentVehicleCoordinates[1] - anotherVehicleCoordinates[1] > 0 &&
+             abs(anotherVehicleCoordinates[0] - currentVehicleCoordinates[0]) <= 30) return true;
     else if ((direction == RIGHT) &&
              anotherVehicleCoordinates[0] - currentVehicleCoordinates[0] <= 200 &&
-             anotherVehicleCoordinates[0] - currentVehicleCoordinates[0] > 0) return true;
+             anotherVehicleCoordinates[0] - currentVehicleCoordinates[0] > 0 &&
+             abs(anotherVehicleCoordinates[1] - currentVehicleCoordinates[1]) <= 30) return true;
     else if ((direction == LEFT) &&
              currentVehicleCoordinates[0] - anotherVehicleCoordinates[0] <= 200 &&
-             currentVehicleCoordinates[0] - anotherVehicleCoordinates[0] > 0) return true;
+             currentVehicleCoordinates[0] - anotherVehicleCoordinates[0] > 0 &&
+             abs(anotherVehicleCoordinates[1] - currentVehicleCoordinates[1]) <= 30) return true;
     else return false;
 }
 
@@ -96,7 +127,6 @@ Direction Vehicle::randomDirection(Direction currentDirection)
     while(targetDirection == excludedDirection) {
         targetDirection = static_cast<Direction>(RandGenerator::generate(0, 3));
     }
-    qInfo() << "Turning " << targetDirection;
     return targetDirection;
 }
 

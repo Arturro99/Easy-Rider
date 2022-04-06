@@ -1,22 +1,20 @@
 #include "mainwindow.h"
-#include "drivethreadcreator.h"
+#include "drivethreadcreatorservice.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    RoadRepositoryPointer roadRepository = RoadRepositoryPointer(new RoadRepository());
-
-
-
-    MainWindow w(roadRepository);
-    w.show();
 
     ThreadManager manager;
-    DriveThreadCreator thread(roadRepository, manager);
-    thread.run();
-    thread.setAutoDelete(true);
+    DriveThreadCreator *threadCreator = new DriveThreadCreator();
+    threadCreator->setManager(manager);
 
+    MainWindow w(threadCreator);
+    w.show();
+
+    DriveThreadCreatorService service(threadCreator);
+    service.run();
     return a.exec();
 }

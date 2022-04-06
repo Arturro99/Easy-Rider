@@ -10,7 +10,7 @@
 #include "randgenerator.h"
 
 class Vehicle : public QObject
-{   
+{
     Q_OBJECT
 private:
     bool isTooClose(int* coordinatesA, int* coordinatesB, Direction direction);
@@ -21,10 +21,10 @@ protected:
     int basicVelocity;
     int *currentCoordinates;
     RoadPointer currentRoad = *new RoadPointer(new Road);
-    RoadRepositoryPointer roadRepository;
     Direction currentDirection;
     const Direction initialDirection;
-    explicit Vehicle(Direction initialDirection, RoadRepositoryPointer roadRepository) : initialDirection(initialDirection), roadRepository(roadRepository) {};
+    explicit Vehicle(Direction initialDirection) : initialDirection(initialDirection) {};
+    bool giveWaySignDetected(Vehicle* vehicle);
 
 public:
     QImage *getImage() const;

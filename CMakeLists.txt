@@ -19,14 +19,10 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        traffic.h traffic.cpp
         road.h road.cpp
         vehicle.h vehicle.cpp
         car.h car.cpp
-        truck.h truck.cpp
         bicycle.h bicycle.cpp
-        trafficrules.h trafficrules.cpp
-        trafficlight.h trafficlight.cpp
         sign.h sign.cpp
         drivethread.h drivethread.cpp
         roadrepository.h roadrepository.cpp
@@ -34,6 +30,8 @@ set(PROJECT_SOURCES
         threadmanager.h threadmanager.cpp
         randgenerator.h randgenerator.cpp
         drivethreadcreator.h drivethreadcreator.cpp
+        drivethreadcreatorservice.h drivethreadcreatorservice.cpp
+        signrepository.h signrepository.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -7,7 +7,7 @@ void VehicleRepository::addVehicle(VehiclePointer vehicle)
 
 void VehicleRepository::removeVehicle(QUuid id)
 {
-    for (auto vehicle: vehiclesOnRoads) {
+    for (auto &vehicle: getVehicles()) {
         if (vehicle.get()->getId() == id) {
             vehiclesOnRoads.removeAt(vehiclesOnRoads.indexOf(vehicle));
             delete vehicle.get();

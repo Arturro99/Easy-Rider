@@ -15,5 +15,3 @@ public:
 };
 
 #endif // VEHICLEREPOSITORY_H
-
-typedef QSharedPointer<VehicleRepository> VehicleRepositoryPointer;
