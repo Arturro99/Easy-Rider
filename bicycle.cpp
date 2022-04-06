@@ -105,14 +105,7 @@ int Bicycle::operateBike(Direction direction) {
 
 void Bicycle::doSpontaneousRotation()
 {
-    int* currentCoordinates = new int[] {getCurrentCoordinates()[0], getCurrentCoordinates()[1]};
-    QTransform transform;
-    int degrees = RandGenerator::generate(-1, 1);
-
-    transform.rotate(degrees);
     QImage *image = this->getImage();
-//    *image = image->transformed(transform);
     *image = image->mirrored(true, false);
     this->setImage(image);
-    setCurrentCoordinates(currentCoordinates);
 }

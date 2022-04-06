@@ -143,6 +143,8 @@ public:
      * @return Docelowy kierunek
      */
     Direction randomDirection(Direction currentDirection);
+
+
     /**
      * @brief Metoda pobierająca aktualną drogę
      * @return Aktualna droga
